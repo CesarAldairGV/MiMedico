@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Login-->
+    <string name="app_name">MiMedico</string>
+    <string name="login_title">Iniciar Sesion</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Contraseña</string>
+    <string name="login_submit">Iniciar Sesion</string>
+    <string name="login_signup">No tengo una cuenta</string>
+    <!--Sign Up-->
+    <string name="signup_title">Crear Nueva Cuenta</string>
+    <string name="signup_username">Nombre de Usuario</string>
+    <string name="signup_email">Email</string>
+    <string name="signup_password">Contraseña</string>
+    <string name="signup_birthdate">Fecha de Nacimiento</string>
+    <string name="signup_account_type">Tipo de Cuenta</string>
+    <!--<string name="signup_user">Usuario</string>
+    <string name="signup_medic">Medico</string>-->
+    <string name="singup_title">Foto de Cedula Medica</string>
+    <string name="signup_submit">Registrase</string>
+    <string name="signup_login">Ya tengo una cuenta</string>
+    <!--Menu-->
+    <string name="change_language">Cambiar Idioma</string>
+    <string name="logout">Cerrar Sesion</string>
+    <!--Languages-->
+    <string name="languages">Lenguajes</string>
+    <string name="english">Ingles</string>
+    <string name="spanish">Español</string>
+    <!--Main-->
+    <string name="main_email_no_validate">Email no valido, validalo checando tu email</string>
+    <string name="main_resend">Reenviar email de validacion</string>
+    <string name="main_user">Usuario: </string>
+    <string name="main_email">Email: </string>
+    <string name="main_birthdate">Fecha de Nacimiento: </string>
+    <string name="main_medics">Mis Medicos</string>
+    <string name="main_symptoms">Enviar Sintomas</string>
+    <string name="main_notifications">Notificaciones</string>
+    <string name="main_medic">Registrarse como doctor</string>
+    <!--MedicMain-->
+    <string name="main_medic_medic">Medico: </string>
+    <string name="main_medic_email">Email: </string>
+    <string name="main_medic_check">Checar Peticiones</string>
+    <string name="main_medic_patients">Mis pacientes</string>
+    <string name="main_medic_notifications">Notificaciones</string>
+    <!--Signup-->
+    <string name="signup_medic">Registrate como medico</string>
+    <string name="signup_medic_image">Cargar una imagen de certificado medico</string>
+    <string name="signup_medic_select">Seleccionar</string>
+    <string name="signup_medic_send">Send</string>
+</resources>

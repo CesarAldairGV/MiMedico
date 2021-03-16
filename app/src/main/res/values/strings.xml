@@ -1,0 +1,49 @@
+<resources>
+    <!--Login-->
+    <string name="app_name">MiMedico</string>
+    <string name="login_title">Login</string>
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login_submit">Login</string>
+    <string name="login_signup">I do not have an Account</string>
+    <!--Sign Up-->
+    <string name="signup_title">Sign up</string>
+    <string name="signup_username">Username</string>
+    <string name="signup_email">Email</string>
+    <string name="signup_password">Password</string>
+    <string name="signup_birthdate">Birth Date</string>
+    <string name="signup_account_type">Account Type</string>
+    <!--<string name="signup_user">User</string>
+    <string name="signup_medic">Medic</string>-->
+    <string name="singup_title">Title Photo</string>
+    <string name="signup_submit">Sign Up</string>
+    <string name="signup_login">I already have an account</string>
+    <!--Menu-->
+    <string name="change_language">Change Language</string>
+    <string name="logout">Logout</string>
+    <!--Languages-->
+    <string name="languages">Languages</string>
+    <string name="english">English</string>
+    <string name="spanish">Spanish</string>
+    <!--Main-->
+    <string name="main_email_no_validate">Email not validate, Check Your email to validate</string>
+    <string name="main_resend">Resend Validation Email</string>
+    <string name="main_user">User: </string>
+    <string name="main_email">Email: </string>
+    <string name="main_birthdate">BirthDate: </string>
+    <string name="main_medics">My Medics</string>
+    <string name="main_symptoms">Submit Symptoms</string>
+    <string name="main_notifications">Notifications</string>
+    <string name="main_medic">Signup as Medic</string>
+    <!--MedicMain-->
+    <string name="main_medic_medic">Medic: </string>
+    <string name="main_medic_email">Email: </string>
+    <string name="main_medic_check">Check Petitions</string>
+    <string name="main_medic_patients">My Patients</string>
+    <string name="main_medic_notifications">Notifications</string>
+    <!--Signup-->
+    <string name="signup_medic">Signup As a medic</string>
+    <string name="signup_medic_image">Upload image of medical certificate</string>
+    <string name="signup_medic_select">Select</string>
+    <string name="signup_medic_send">Send</string>
+</resources>
