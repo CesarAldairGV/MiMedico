@@ -87,4 +87,8 @@ public class MainMedic extends AppCompatActivity {
         firebaseAuth.signOut();
         startActivity(new Intent(this, Login.class));
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

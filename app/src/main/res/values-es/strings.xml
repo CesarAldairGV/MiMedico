@@ -7,6 +7,11 @@
     <string name="login_password">Contraseña</string>
     <string name="login_submit">Iniciar Sesion</string>
     <string name="login_signup">No tengo una cuenta</string>
+        <string-array name="roles">
+            <item>1° Usuario</item>
+            <item>2° Medico</item>
+            <item>3° Administrador</item>
+        </string-array>
     <!--Sign Up-->
     <string name="signup_title">Crear Nueva Cuenta</string>
     <string name="signup_username">Nombre de Usuario</string>

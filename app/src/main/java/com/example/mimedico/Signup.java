@@ -129,4 +129,8 @@ public class Signup extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.mimedico.model.Roles;
@@ -28,6 +30,7 @@ public class Login extends AppCompatActivity {
     private EditText emailField;
     private EditText passwordField;
     private View progressBar;
+    private Spinner rolesSpinner;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -41,10 +44,16 @@ public class Login extends AppCompatActivity {
         emailField = findViewById(R.id.loginEmail);
         passwordField = findViewById(R.id.loginPassword);
         progressBar = findViewById(R.id.loginProgressBar);
+        rolesSpinner = findViewById(R.id.roleSpinner);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.roles,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
+        rolesSpinner.setAdapter(adapter);
+
     }
 
     public void changeToSignup(View view){
@@ -74,15 +83,23 @@ public class Login extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                 String role = "";
+                String roleInField = rolesSpinner.getSelectedItem().toString();
                 while(iterator.hasNext()){
                     DataSnapshot dataSnapshot1 = iterator.next();
                     role = dataSnapshot1.child("role").getValue().toString();
                 }
                 if(role.equals(Roles.USER.getRole())){
-                    Toast.makeText(getApplicationContext(), "YESS", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(Login.this, MainActivity.class));
+                    if(roleInField.charAt(0) != '1'){
+                        Toast.makeText(getApplicationContext(), "Incorrect Role",Toast.LENGTH_LONG).show();
+                    }else {
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                    }
                 }else if(role.equals(Roles.MEDIC.getRole())){
-                    startActivity(new Intent(Login.this, MainMedic.class));
+                    if(roleInField.charAt(0) != 2){
+                        Toast.makeText(getApplicationContext(), "Incorrect Role",Toast.LENGTH_LONG).show();
+                    }else {
+                        startActivity(new Intent(Login.this, MainMedic.class));
+                    }
                 }
             }
             @Override
@@ -125,5 +142,9 @@ public class Login extends AppCompatActivity {
                 return true;
         }
         return false;
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

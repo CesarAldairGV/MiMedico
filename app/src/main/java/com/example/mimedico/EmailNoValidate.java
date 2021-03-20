@@ -4,6 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
@@ -39,5 +42,38 @@ public class EmailNoValidate extends AppCompatActivity {
         }else{
             Toast.makeText(getApplicationContext(), "User Not Authenticated", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void logout(){
+        firebaseAuth.signOut();
+        startActivity(new Intent(this, Login.class));
+    }
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()){
+            case R.id.logout:
+                logout();
+                return true;
+            case R.id.mainLanguages:
+                Intent intent = new Intent(this, Language.class);
+                intent.putExtra("parent","EmailNotValidateActivity");
+                startActivity(intent);
+                return true;
+        }
+        return false;
+    }
+
+    @Override
+    public void onBackPressed() {
     }
 }

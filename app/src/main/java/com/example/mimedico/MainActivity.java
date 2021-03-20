@@ -73,10 +73,13 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void resendEmailVerification(View view){
-        firebaseAuth.getCurrentUser().sendEmailVerification()
-                .addOnSuccessListener(command -> Toast.makeText(getApplicationContext(), "Verification Email has been send", Toast.LENGTH_LONG).show())
-                .addOnFailureListener(command -> Toast.makeText(getApplicationContext(), "Cannot Send Email", Toast.LENGTH_LONG).show());
+    public void openSignupAsMedic(View view){
+        startActivity(new Intent(this, SignupMedic.class));
+    }
+
+    public void logout(){
+        firebaseAuth.signOut();
+        startActivity(new Intent(this, Login.class));
     }
 
     @Override
@@ -86,9 +89,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-    public void openSignupAsMedic(View view){
-        startActivity(new Intent(this, SignupMedic.class));
-    }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -105,8 +105,7 @@ public class MainActivity extends AppCompatActivity {
         return false;
     }
 
-    public void logout(){
-        firebaseAuth.signOut();
-        startActivity(new Intent(this, Login.class));
+    @Override
+    public void onBackPressed() {
     }
 }
