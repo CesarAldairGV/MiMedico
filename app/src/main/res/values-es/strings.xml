@@ -19,8 +19,6 @@
     <string name="signup_password">Contraseña</string>
     <string name="signup_birthdate">Fecha de Nacimiento</string>
     <string name="signup_account_type">Tipo de Cuenta</string>
-    <!--<string name="signup_user">Usuario</string>
-    <string name="signup_medic">Medico</string>-->
     <string name="singup_title">Foto de Cedula Medica</string>
     <string name="signup_submit">Registrase</string>
     <string name="signup_login">Ya tengo una cuenta</string>
@@ -54,4 +52,11 @@
     <string name="email_no_validate">Email no valido, validalo checando tu email</string>
     <string name="resend">Reenviar email de validacion</string>
     <string name="reload">Recargar Sesion</string>
+    <!--My Symptoms-->
+    <string name="my_symptons_title">Mis Sintomas</string>
+
+    <!--Send Symptoms-->
+    <string name="send_symptoms_title">Enviar Sintomas</string>
+    <string name="send_symptoms_placeholder">Escribe aqui una descripcion de tus sintomas</string>
+    <string name="send_symptoms_send">Enviar</string>
 </resources>

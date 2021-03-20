@@ -13,19 +13,19 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
         android:text="@string/signup_medic"
-        android:textSize="20sp"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
+        app:layout_constraintVertical_bias="0.05" />
 
     <TextView
         android:id="@+id/uploadText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/signup_medic_image"
+        android:fontFamily="@font/baloo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -65,7 +65,8 @@
         android:text="@string/signup_medic_send"
         android:visibility="gone"
         android:onClick="sendImage"
-
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#3F60F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

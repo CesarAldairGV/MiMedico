@@ -20,7 +20,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.050000012" />
+        app:layout_constraintVertical_bias="0.050000000" />
 
     <TextView
         android:id="@+id/mainEmail"
@@ -63,6 +63,7 @@
         android:background="@drawable/round_bg"
         android:fontFamily="@font/baloo"
         android:textSize="20dp"
+        android:onClick="openMySymptoms"
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

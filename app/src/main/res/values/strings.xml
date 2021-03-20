@@ -6,11 +6,11 @@
     <string name="login_password">Password</string>
     <string name="login_submit">Login</string>
     <string name="login_signup">I do not have an Account</string>
-        <string-array name="roles">
-            <item>1° User</item>
-            <item>2° Medic</item>
-            <item>3° Admin</item>
-        </string-array>
+    <string-array name="roles">
+        <item>1° User</item>
+        <item>2° Medic</item>
+        <item>3° Admin</item>
+    </string-array>
     <!--Sign Up-->
     <string name="signup_title">Sign up</string>
     <string name="signup_username">Username</string>
@@ -18,8 +18,6 @@
     <string name="signup_password">Password</string>
     <string name="signup_birthdate">Birth Date</string>
     <string name="signup_account_type">Account Type</string>
-    <!--<string name="signup_user">User</string>
-    <string name="signup_medic">Medic</string>-->
     <string name="singup_title">Title Photo</string>
     <string name="signup_submit">Sign Up</string>
     <string name="signup_login">I already have an account</string>
@@ -53,4 +51,11 @@
     <string name="email_no_validate">Email not validate, Check Your email to validate</string>
     <string name="resend">Resend Validation Email</string>
     <string name="reload">Reload Session</string>
+    <!--My Symptoms-->
+    <string name="my_symptons_title">My Symptoms</string>
+
+    <!--Send Symptoms-->
+    <string name="send_symptoms_title">Send Symptoms</string>
+    <string name="send_symptoms_placeholder">Write over here the symptoms</string>
+    <string name="send_symptoms_send">Send</string>
 </resources>

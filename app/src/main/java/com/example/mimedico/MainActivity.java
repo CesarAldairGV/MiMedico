@@ -34,8 +34,6 @@ import static com.example.mimedico.utils.ChangeLanguage.changeLanguage;
 
 public class MainActivity extends AppCompatActivity {
 
-    private View emailNotValidText;
-    private Button resendButton;
     private TextView usernameText;
     private TextView emailText;
 
@@ -71,6 +69,10 @@ public class MainActivity extends AppCompatActivity {
                 // ...
             }
         });
+    }
+
+    public void openMySymptoms(View view){
+        startActivity(new Intent(this, MySymptoms.class));
     }
 
     public void openSignupAsMedic(View view){
