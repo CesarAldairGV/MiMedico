@@ -27,8 +27,6 @@
     <string name="english">Ingles</string>
     <string name="spanish">Español</string>
     <!--Main-->
-    <string name="main_email_no_validate">Email no valido, validalo checando tu email</string>
-    <string name="main_resend">Reenviar email de validacion</string>
     <string name="main_user">Usuario: </string>
     <string name="main_email">Email: </string>
     <string name="main_birthdate">Fecha de Nacimiento: </string>
@@ -47,4 +45,8 @@
     <string name="signup_medic_image">Cargar una imagen de certificado medico</string>
     <string name="signup_medic_select">Seleccionar</string>
     <string name="signup_medic_send">Send</string>
+    <!--Email-->
+    <string name="email_no_validate">Email no valido, validalo checando tu email</string>
+    <string name="resend">Reenviar email de validacion</string>
+    <string name="reload">Recargar Sesion</string>
 </resources>

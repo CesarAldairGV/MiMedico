@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6C9F5"
+    tools:context=".EmailNoValidate">
+
+    <TextView
+        android:id="@+id/notValidEmail"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:backgroundTint="#E3AAAA"
+        android:padding="10sp"
+        android:text="@string/email_no_validate"
+        android:textSize="20dp"
+        android:textColor="#D12222"
+        android:background="@drawable/round_bg"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.4" />
+
+    <Button
+        android:id="@+id/resendValidation"
+        android:layout_width="158dp"
+        android:layout_height="57dp"
+        android:padding="5sp"
+        android:text="@string/resend"
+        android:background="@drawable/round_bg"
+        android:onClick="resendEmailVerification"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/notValidEmail"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <Button
+        android:id="@+id/reloadButton"
+        android:layout_width="158dp"
+        android:layout_height="57dp"
+        android:padding="5sp"
+        android:text="@string/reload"
+        android:background="@drawable/round_bg"
+        android:onClick="reloadUser"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resendValidation"
+        app:layout_constraintVertical_bias="0.1" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

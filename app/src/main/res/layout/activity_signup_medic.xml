@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A6C9F5"
     tools:context=".SignupMedic">
 
     <TextView
@@ -20,18 +21,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.125" />
 
-    <Button
-        android:id="@+id/selectImageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/signup_medic_select"
-        android:onClick="selectImage"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadText"
-        app:layout_constraintVertical_bias="0.098" />
-
     <TextView
         android:id="@+id/uploadText"
         android:layout_width="wrap_content"
@@ -43,6 +32,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupMedicText"
         app:layout_constraintVertical_bias="0.076" />
+
+    <Button
+        android:id="@+id/selectImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/signup_medic_select"
+        android:onClick="selectImage"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/uploadText"
+        app:layout_constraintVertical_bias="0.098" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -62,6 +65,7 @@
         android:text="@string/signup_medic_send"
         android:visibility="gone"
         android:onClick="sendImage"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

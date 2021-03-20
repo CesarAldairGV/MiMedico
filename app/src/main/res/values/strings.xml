@@ -26,8 +26,6 @@
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
     <!--Main-->
-    <string name="main_email_no_validate">Email not validate, Check Your email to validate</string>
-    <string name="main_resend">Resend Validation Email</string>
     <string name="main_user">User: </string>
     <string name="main_email">Email: </string>
     <string name="main_birthdate">BirthDate: </string>
@@ -46,4 +44,8 @@
     <string name="signup_medic_image">Upload image of medical certificate</string>
     <string name="signup_medic_select">Select</string>
     <string name="signup_medic_send">Send</string>
+    <!--Email-->
+    <string name="email_no_validate">Email not validate, Check Your email to validate</string>
+    <string name="resend">Resend Validation Email</string>
+    <string name="reload">Reload Session</string>
 </resources>

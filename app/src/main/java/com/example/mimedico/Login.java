@@ -58,7 +58,11 @@ public class Login extends AppCompatActivity {
         progressBar.setVisibility(View.VISIBLE);
         firebaseAuth.signInWithEmailAndPassword(email, password)
                 .addOnSuccessListener(command -> {
-                    checkUserTypeAndStartActivity(email);
+                    if(command.getUser().isEmailVerified()) {
+                        checkUserTypeAndStartActivity(email);
+                    }else{
+                        startActivity(new Intent(this, EmailNoValidate.class));
+                    }
                 })
                 .addOnFailureListener(command -> Toast.makeText(getApplicationContext(), "Invalid Data",Toast.LENGTH_LONG).show())
                 .addOnCompleteListener(command -> progressBar.setVisibility(View.GONE));
@@ -75,6 +79,7 @@ public class Login extends AppCompatActivity {
                     role = dataSnapshot1.child("role").getValue().toString();
                 }
                 if(role.equals(Roles.USER.getRole())){
+                    Toast.makeText(getApplicationContext(), "YESS", Toast.LENGTH_LONG).show();
                     startActivity(new Intent(Login.this, MainActivity.class));
                 }else if(role.equals(Roles.MEDIC.getRole())){
                     startActivity(new Intent(Login.this, MainMedic.class));

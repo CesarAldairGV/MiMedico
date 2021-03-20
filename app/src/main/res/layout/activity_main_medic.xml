@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#A6C9F5"
     tools:context=".MainMedic">
 
     <TextView
@@ -25,7 +26,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/main_email"
+        android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medicUser" />
@@ -39,6 +42,10 @@
         android:layout_marginEnd="16dp"
         android:drawableLeft="@drawable/cross50px"
         android:text="@string/main_medic_check"
+        android:background="@drawable/round_bg"
+        android:fontFamily="@font/baloo"
+        android:textSize="20dp"
+        app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medicEmail" />
@@ -52,6 +59,10 @@
         android:layout_marginEnd="16dp"
         android:drawableLeft="@drawable/patient50px"
         android:text="@string/main_medic_patients"
+        android:background="@drawable/round_bg"
+        android:fontFamily="@font/baloo"
+        android:textSize="20dp"
+        app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medicCheckPetitionsButton" />
@@ -65,6 +76,10 @@
         android:layout_marginEnd="16dp"
         android:drawableLeft="@drawable/bell50px"
         android:text="@string/main_medic_notifications"
+        android:background="@drawable/round_bg"
+        android:fontFamily="@font/baloo"
+        android:textSize="20dp"
+        app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/medicMyPatientsButton" />

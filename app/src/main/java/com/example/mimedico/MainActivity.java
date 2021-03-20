@@ -47,9 +47,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        emailNotValidText = findViewById(R.id.notValidEmail);
-        resendButton = findViewById(R.id.resendValidation);
-
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -64,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     DataSnapshot dataSnapshot1 = iterator.next();
                     String email = dataSnapshot1.child("email").getValue().toString();
                     String username = dataSnapshot1.child("username").getValue().toString();
-                    emailText.append(email);
-                    usernameText.append(username);
+                    emailText.append(" " + email);
+                    usernameText.append(" " + username);
                 }
             }
 
@@ -74,15 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 // ...
             }
         });
-        //emailText.append(firebaseAuth.getCurrentUser().getEmail());
-        verifiedEmailNotValid();
-    }
-
-    private void verifiedEmailNotValid(){
-        if(firebaseAuth.getCurrentUser().isEmailVerified()){
-            emailNotValidText.setVisibility(View.INVISIBLE);
-            resendButton.setVisibility(View.GONE);
-        }
     }
 
     public void resendEmailVerification(View view){

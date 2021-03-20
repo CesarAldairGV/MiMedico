@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiMedico">
+        <activity android:name=".EmailNoValidate"></activity>
         <activity android:name=".Language" />
         <activity android:name=".SignupMedic" />
         <activity android:name=".MainMedic" />

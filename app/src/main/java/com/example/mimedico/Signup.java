@@ -62,7 +62,6 @@ public class Signup extends AppCompatActivity {
         if (!validateFields(username, email, birthdate, password)) return;
         progressBar.setVisibility(View.VISIBLE);
         User user = User.builder()
-                .id(UUID.randomUUID().toString())
                 .username(username)
                 .email(email)
                 .birthdate(birthdate)
@@ -71,10 +70,14 @@ public class Signup extends AppCompatActivity {
                 .build();
         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnSuccessListener(authResult -> {
             firebaseAuth.getCurrentUser().sendEmailVerification()
-                    .addOnSuccessListener(command -> Toast.makeText(getApplicationContext(), "Verification Email has been send", Toast.LENGTH_LONG).show())
-                    .addOnFailureListener(command -> Toast.makeText(getApplicationContext(), "Cannot Send Email", Toast.LENGTH_LONG).show());
+                    .addOnSuccessListener(command ->
+                            Toast.makeText(getApplicationContext(), "Verification Email has been send", Toast.LENGTH_LONG)
+                                    .show())
+                    .addOnFailureListener(command ->
+                            Toast.makeText(getApplicationContext(), "Cannot Send Email", Toast.LENGTH_LONG)
+                                    .show());
             databaseReference.child("users").push().setValue(user);
-            startActivity(new Intent(this, MainActivity.class));
+            startActivity(new Intent(this, EmailNoValidate.class));
         }).addOnFailureListener(e -> {
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG);
         }).addOnCompleteListener(command -> progressBar.setVisibility(View.GONE));
