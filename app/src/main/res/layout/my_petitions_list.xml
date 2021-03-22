@@ -15,48 +15,64 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:paddingStart="5dp"
         android:paddingEnd="5dp">
 
-        <TextView
-            android:id="@+id/petitionTitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:fontFamily="@font/baloo"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:paddingStart="5dp" />
+        <ImageView
+            android:visibility="gone"
+            android:id="@+id/imageView3"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            app:srcCompat="@android:drawable/list_selector_background" />
 
-        <TextView
-            android:id="@+id/petitionDescription"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
-            android:fontFamily="@font/baloo"
-            android:textColor="#FFFFFF"
-            android:paddingStart="5dp"
-            android:paddingBottom="15dp"/>
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/petitionDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:fontFamily="@font/baloo"
-            android:textColor="#FFFFFF"
-            android:paddingStart="5dp"/>
+            <TextView
+                android:id="@+id/petitionTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:fontFamily="@font/baloo"
+                android:textSize="20dp"
+                android:textColor="#FFFFFF"
+                android:paddingStart="5dp" />
 
-        <TextView
-            android:id="@+id/petitionAccepted"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Accepted"
-            android:fontFamily="@font/baloo"
-            android:textColor="#FFFFFF"
-            android:paddingStart="5dp"/>
+            <TextView
+                android:id="@+id/petitionDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Description"
+                android:fontFamily="@font/baloo"
+                android:textColor="#FFFFFF"
+                android:paddingStart="5dp"
+                android:paddingBottom="15dp"/>
+
+            <TextView
+                android:id="@+id/petitionDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Date"
+                android:fontFamily="@font/baloo"
+                android:textColor="#FFFFFF"
+                android:paddingStart="5dp"/>
+
+            <TextView
+                android:id="@+id/petitionAccepted"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Accepted"
+                android:fontFamily="@font/baloo"
+                android:textColor="#FFFFFF"
+                android:paddingStart="5dp"/>
+
+        </LinearLayout>
+
     </LinearLayout>
-
 
 </androidx.cardview.widget.CardView>
