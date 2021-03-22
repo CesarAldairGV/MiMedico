@@ -26,8 +26,6 @@ public class MySymptoms extends AppCompatActivity {
     FirebaseDatabase firebaseDatabase;
     FirebaseAuth firebaseAuth;
 
-    private String userId;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +38,7 @@ public class MySymptoms extends AppCompatActivity {
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
-                        userId = snapshot.getChildren().iterator().next().child("id").getValue().toString();
+                        final String userId = snapshot.getChildren().iterator().next().child("id").getValue().toString();
                         firebaseDatabase.getReference("petitions")
                                 .orderByChild("userId")
                                 .equalTo(userId)
@@ -52,11 +50,18 @@ public class MySymptoms extends AppCompatActivity {
                                         while(dataSnapshotIterator.hasNext()){
                                             symptomsPetitions.add(dataSnapshotIterator.next().getValue(SymptomsPetition.class));
                                         }
+                                        //symptomsPetitions.add(null);
                                         MyPetitionsAdapter myPetitionsAdapter = new MyPetitionsAdapter(symptomsPetitions, MySymptoms.this);
                                         RecyclerView recyclerView = findViewById(R.id.mySymptomsList);
-                                        recyclerView.setHasFixedSize(true);
+                                        //recyclerView.setHasFixedSize(true);
                                         recyclerView.setLayoutManager(new LinearLayoutManager(MySymptoms.this));
                                         recyclerView.setAdapter(myPetitionsAdapter);
+                                        /*recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+                                            @Override
+                                            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                                                super.onScrolled(recyclerView, dx, dy);
+                                            }
+                                        });*/
                                     }
                                     @Override
                                     public void onCancelled(@NonNull DatabaseError error) {

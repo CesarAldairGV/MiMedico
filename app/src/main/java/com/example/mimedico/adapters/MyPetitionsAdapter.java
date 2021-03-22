@@ -1,7 +1,6 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +14,7 @@ import com.example.mimedico.model.SymptomsPetition;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-
-public class MyPetitionsAdapter extends RecyclerView.Adapter<MyPetitionsAdapter.MyPetitionsHolder> {
+public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     public class MyPetitionsHolder extends RecyclerView.ViewHolder{
 
@@ -39,6 +36,14 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<MyPetitionsAdapter.
         }
     }
 
+    public class LoadingHolder extends RecyclerView.ViewHolder{
+        public LoadingHolder(@NonNull View itemView) {
+            super(itemView);
+        }
+    }
+
+    private final int LOADING_TYPE = 0;
+    private final int SYMPTOM_TYPE = 1;
     private List<SymptomsPetition> symptomsPetitionList;
     private LayoutInflater layoutInflater;
     private Context context;
@@ -51,14 +56,20 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<MyPetitionsAdapter.
 
     @NonNull
     @Override
-    public MyPetitionsHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.my_petitions_list, parent,false);
-        return new MyPetitionsHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        /*if(viewType == LOADING_TYPE){
+            View view = layoutInflater.inflate(R.layout.list_progressbar, parent, false);
+            return new LoadingHolder(view);
+        }else {*/
+            View view = layoutInflater.inflate(R.layout.my_petitions_list, parent, false);
+            return new MyPetitionsHolder(view);
+        //}
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyPetitionsHolder holder, int position) {
-        holder.bindData(symptomsPetitionList.get(position));
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        if(holder instanceof MyPetitionsHolder)
+            ((MyPetitionsHolder)holder).bindData(symptomsPetitionList.get(position));
     }
 
     @Override
@@ -66,4 +77,8 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<MyPetitionsAdapter.
         return symptomsPetitionList.size();
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        return symptomsPetitionList.get(position) == null ? LOADING_TYPE : SYMPTOM_TYPE;
+    }
 }

@@ -25,13 +25,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
+        android:layout_marginTop="20dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/send_symptoms_title_placeholder"
         android:background="@drawable/round_bg"
         app:backgroundTint="#70ABD3"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sendSymptomsText"
@@ -40,32 +40,53 @@
     <EditText
         android:id="@+id/sendSymptomsField"
         android:layout_width="0dp"
-        android:layout_height="270dp"
+        android:layout_height="135dp"
         android:fontFamily="@font/baloo"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:hint="@string/send_symptoms_placeholder"
         android:background="@drawable/round_bg"
         app:backgroundTint="#70ABD3"
         android:padding="10dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendTitleField"
-        app:layout_constraintVertical_bias="0.15" />
+        app:layout_constraintTop_toBottomOf="@+id/sendTitleField" />
+
+
+    <Button
+        android:id="@+id/appendImageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/send_symptoms_append_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendSymptomsField"
+        app:layout_constraintVertical_bias="0.131" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appendImageButton"
+        app:srcCompat="@android:drawable/list_selector_background" />
 
     <Button
         android:id="@+id/sendSymptomsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/send_symptoms_send"
+        android:layout_marginTop="16dp"
         android:background="@drawable/round_bg"
         android:onClick="sendSymptoms"
+        android:text="@string/send_symptoms_send"
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendSymptomsField" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <ProgressBar
         android:id="@+id/sendSymptomsProgressBar"

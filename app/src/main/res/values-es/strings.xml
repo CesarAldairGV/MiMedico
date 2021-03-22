@@ -59,6 +59,7 @@
     <string name="send_symptoms_title">Enviar Sintomas</string>
     <string name="send_symptoms_title_placeholder">Titulo de la peticion</string>
     <string name="send_symptoms_placeholder">Escribe aqui una descripcion de tus sintomas</string>
+    <string name="send_symptoms_append_image">Anexar Imagen(Opcional)</string>
     <string name="send_symptoms_send">Enviar</string>
 
     <!--Check Petitions-->

@@ -17,5 +17,7 @@ public class SymptomsPetition {
     private String title;
     private String description;
     private String petitionDate;
+    private String medicId;
     private boolean petitionAccepted;
+    private boolean hasImage;
 }
