@@ -24,11 +24,39 @@
         android:id="@+id/checkPetitionsList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkPetitionsText"
+        app:layout_constraintTop_toBottomOf="@+id/checkPetitionsKeyWordsField"
         app:layout_constraintVertical_bias="0.1" />
+
+    <EditText
+        android:id="@+id/checkPetitionsKeyWordsField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/my_symptoms_placeholder"
+        android:padding="10dp"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#70ABD3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/checkPetitionsText" />
+
+    <Button
+        android:id="@+id/checkPetitionsSearchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_symptoms_search"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/checkPetitionsKeyWordsField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/checkPetitionsKeyWordsField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

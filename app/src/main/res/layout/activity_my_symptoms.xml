@@ -7,12 +7,13 @@
     android:background="#A6C9F5"
     tools:context=".MySymptoms">
 
+
     <TextView
         android:id="@+id/mySymptomsText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
-        android:text="@string/my_symptons_title"
+        android:text="@string/my_symptoms_title"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,8 +27,8 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="16dp"
-        android:src="@drawable/baseline_add_black_18dp"
         android:onClick="openSendPetition"
+        android:src="@drawable/baseline_add_black_18dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -35,11 +36,39 @@
         android:id="@+id/mySymptomsList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mySymptomsText"
-        app:layout_constraintVertical_bias="0.1" />
+        app:layout_constraintTop_toBottomOf="@+id/keyWordsField" />
+
+    <EditText
+        android:id="@+id/keyWordsField"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/my_symptoms_placeholder"
+        android:padding="10dp"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#70ABD3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.134"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mySymptomsText" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/my_symptoms_search"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintBaseline_toBaselineOf="@+id/keyWordsField"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toEndOf="@+id/keyWordsField" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

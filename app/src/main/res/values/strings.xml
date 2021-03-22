@@ -52,7 +52,9 @@
     <string name="resend">Resend Validation Email</string>
     <string name="reload">Reload Session</string>
     <!--My Symptoms-->
-    <string name="my_symptons_title">My Symptoms</string>
+    <string name="my_symptoms_title">My Symptoms</string>
+    <string name="my_symptoms_placeholder">Key Words</string>
+    <string name="my_symptoms_search">Search</string>
 
     <!--Send Symptoms-->
     <string name="send_symptoms_title">Send Symptoms</string>

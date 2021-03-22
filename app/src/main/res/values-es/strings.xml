@@ -53,7 +53,9 @@
     <string name="resend">Reenviar email de validacion</string>
     <string name="reload">Recargar Sesion</string>
     <!--My Symptoms-->
-    <string name="my_symptons_title">Mis Sintomas</string>
+    <string name="my_symptoms_title">Mis Sintomas</string>
+    <string name="my_symptoms_placeholder">Palabras Clave</string>
+    <string name="my_symptoms_search">Buscar</string>
 
     <!--Send Symptoms-->
     <string name="send_symptoms_title">Enviar Sintomas</string>

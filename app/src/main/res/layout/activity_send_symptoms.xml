@@ -60,6 +60,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/send_symptoms_append_image"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sendSymptomsField"

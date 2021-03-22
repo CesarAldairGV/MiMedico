@@ -45,8 +45,6 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             if(symptomsPetition.isHasImage()){
                 imageView.setVisibility(View.VISIBLE);
                 Picasso.get().load(symptomsPetition.getImage()).into(imageView);
-                /*Bitmap bmp = BitmapFactory.decodeByteArray(symptomsPetition.getImage(), 0, symptomsPetition.getImage().length);
-                imageView.setImageBitmap(bmp);*/
             }
         }
     }

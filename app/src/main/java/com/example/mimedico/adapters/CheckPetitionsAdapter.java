@@ -16,7 +16,7 @@ import com.example.mimedico.model.SymptomsPetition;
 
 import java.util.List;
 
-public class CheckPetitionsAdapter extends RecyclerView.Adapter<CheckPetitionsAdapter.CheckPetitionsHolder> {
+public class CheckPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public class CheckPetitionsHolder extends RecyclerView.ViewHolder{
         private TextView checkPetitionTitle, checkPetitionDescription, checkPetitionDate;
         private Button sendMessageButton;
@@ -58,8 +58,8 @@ public class CheckPetitionsAdapter extends RecyclerView.Adapter<CheckPetitionsAd
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CheckPetitionsHolder holder, int position) {
-        holder.bindData(symptomsPetitionList.get(position));
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
+        ((CheckPetitionsHolder)holder).bindData(symptomsPetitionList.get(position));
     }
 
     @Override
