@@ -83,7 +83,8 @@ public class SignupMedic extends AppCompatActivity {
             byte[] data = baos.toByteArray();
             UploadTask uploadTask = storageReference
                     .child("images")
-                    .child(firebaseAuth.getCurrentUser().getEmail()+".jpg").putBytes(data);
+                    .child(firebaseAuth.getCurrentUser().getEmail())
+                    .child("medicProof").putBytes(data);
             uploadTask.addOnFailureListener((Exception exception)->{
                 Toast.makeText(getApplicationContext(), "Cannot Send Image",Toast.LENGTH_LONG).show();
             }).addOnSuccessListener((UploadTask.TaskSnapshot taskSnapshot)->{

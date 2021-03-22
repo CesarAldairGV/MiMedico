@@ -33,7 +33,7 @@
     <string name="main_email">Email: </string>
     <string name="main_birthdate">BirthDate: </string>
     <string name="main_medics">My Medics</string>
-    <string name="main_symptoms">Submit Symptoms</string>
+    <string name="main_symptoms">My Symptoms</string>
     <string name="main_notifications">Notifications</string>
     <string name="main_medic">Signup as Medic</string>
     <!--MedicMain-->
@@ -56,6 +56,11 @@
 
     <!--Send Symptoms-->
     <string name="send_symptoms_title">Send Symptoms</string>
+    <string name="send_symptoms_title_placeholder">Title of petition</string>
     <string name="send_symptoms_placeholder">Write over here the symptoms</string>
     <string name="send_symptoms_send">Send</string>
+
+    <!--Check Petitions-->
+    <string name="check_petitions_text">Check Petitions</string>
+    <string name="check_petitions_send">Send Message</string>
 </resources>

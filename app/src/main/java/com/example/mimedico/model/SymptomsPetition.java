@@ -12,8 +12,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Builder
 public class SymptomsPetition {
-    private String userEmail;
+    private String id;
+    private String userId;
+    private String title;
     private String description;
-    private Date petitionDate;
+    private String petitionDate;
     private boolean petitionAccepted;
 }

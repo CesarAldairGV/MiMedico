@@ -8,8 +8,10 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mimedico.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,6 +28,8 @@ public class MainMedic extends AppCompatActivity {
     private TextView usernameText;
     private TextView emailText;
 
+    private Button checkPetitionsButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,9 +41,12 @@ public class MainMedic extends AppCompatActivity {
         usernameText = findViewById(R.id.medicUser);
         emailText = findViewById(R.id.medicEmail);
 
+        checkPetitionsButton = findViewById(R.id.medicCheckPetitionsButton);
+
         firebaseDatabase.getReference("users").orderByChild("email").equalTo(firebaseAuth.getCurrentUser().getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
+
                 Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                 while(iterator.hasNext()){
                     DataSnapshot dataSnapshot1 = iterator.next();
@@ -57,15 +64,15 @@ public class MainMedic extends AppCompatActivity {
         });
     }
 
+    public void openCheckPetitions(View view){
+        startActivity(new Intent(this, CheckPetitions.class));
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_menu, menu);
         return true;
-    }
-
-    public void openSignupAsMedic(View view){
-        startActivity(new Intent(this, SignupMedic.class));
     }
 
     @Override

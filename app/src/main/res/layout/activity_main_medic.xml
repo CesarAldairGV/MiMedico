@@ -45,6 +45,7 @@
         android:background="@drawable/round_bg"
         android:fontFamily="@font/baloo"
         android:textSize="20dp"
+        android:onClick="openCheckPetitions"
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

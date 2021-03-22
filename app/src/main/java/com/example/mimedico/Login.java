@@ -95,7 +95,7 @@ public class Login extends AppCompatActivity {
                         startActivity(new Intent(Login.this, MainActivity.class));
                     }
                 }else if(role.equals(Roles.MEDIC.getRole())){
-                    if(roleInField.charAt(0) != 2){
+                    if(roleInField.charAt(0) != '2'){
                         Toast.makeText(getApplicationContext(), "Incorrect Role",Toast.LENGTH_LONG).show();
                     }else {
                         startActivity(new Intent(Login.this, MainMedic.class));

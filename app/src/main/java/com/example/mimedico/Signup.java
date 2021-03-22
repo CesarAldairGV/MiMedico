@@ -62,6 +62,7 @@ public class Signup extends AppCompatActivity {
         if (!validateFields(username, email, birthdate, password)) return;
         progressBar.setVisibility(View.VISIBLE);
         User user = User.builder()
+                .id(UUID.randomUUID().toString())
                 .username(username)
                 .email(email)
                 .birthdate(birthdate)
@@ -76,7 +77,7 @@ public class Signup extends AppCompatActivity {
                     .addOnFailureListener(command ->
                             Toast.makeText(getApplicationContext(), "Cannot Send Email", Toast.LENGTH_LONG)
                                     .show());
-            databaseReference.child("users").push().setValue(user);
+            databaseReference.child("users").child(user.getId()).setValue(user);
             startActivity(new Intent(this, EmailNoValidate.class));
         }).addOnFailureListener(e -> {
             Toast.makeText(getApplicationContext(), e.getMessage(), Toast.LENGTH_LONG);

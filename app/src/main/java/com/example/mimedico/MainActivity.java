@@ -51,7 +51,10 @@ public class MainActivity extends AppCompatActivity {
         usernameText = findViewById(R.id.mainUser);
         emailText = findViewById(R.id.mainEmail);
 
-        firebaseDatabase.getReference("users").orderByChild("email").equalTo(firebaseAuth.getCurrentUser().getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
+        firebaseDatabase.getReference("users")
+                .orderByChild("email")
+                .equalTo(firebaseAuth.getCurrentUser().getEmail())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
