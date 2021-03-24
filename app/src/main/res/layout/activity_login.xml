@@ -88,7 +88,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/login_submit"
-        android:onClick="login"
         android:background="@drawable/round_bg"
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -102,7 +101,6 @@
         android:layout_marginTop="32dp"
         android:text="@string/login_signup"
         android:textColor="#091EAA"
-        android:onClick="changeToSignup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/loginButton" />

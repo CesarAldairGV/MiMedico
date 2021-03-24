@@ -11,10 +11,10 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.mimedico.adapters.CheckPetitionsAdapter;
 import com.example.mimedico.adapters.MyPetitionsAdapter;
 import com.example.mimedico.dto.MySymptomsPetitionDto;
 import com.example.mimedico.model.SymptomsPetition;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -27,25 +27,28 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
-public class CheckPetitions extends AppCompatActivity {
+public class MyPetitions extends AppCompatActivity {
+
+    private EditText keyWordsField;
+    private FloatingActionButton addPetitionButton;
+    private Button searchButton;
 
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
     private FirebaseStorage firebaseStorage;
 
-    private Button searchButton;
-    private EditText keyWordsField;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_petitions);
+        setContentView(R.layout.activity_my_petitions);
+
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
 
-        searchButton = findViewById(R.id.checkPetitionsSearchButton);
-        keyWordsField = findViewById(R.id.checkPetitionsKeyWordsField);
+        keyWordsField = findViewById(R.id.keyWordsField);
+        addPetitionButton = findViewById(R.id.addPetitionButton);
+        searchButton = findViewById(R.id.searchButton);
 
         String keyWords = getIntent().getStringExtra("keyWords");
         if(keyWords == null) {
@@ -54,11 +57,21 @@ public class CheckPetitions extends AppCompatActivity {
             getItemsBySearch(keyWords);
         }
 
+
+        addPetitionButton.setOnClickListener(this::openSendPetition);
         searchButton.setOnClickListener(this::searchButtonAction);
+    }
+
+    public void searchButtonAction(View view){
+        Intent intent = new Intent(this, this.getClass());
+        intent.putExtra("keyWords",keyWordsField.getText().toString().trim());
+        startActivity(intent);
     }
 
     public void getAllItems(){
         firebaseDatabase.getReference("petitions")
+                .orderByChild("user/email")
+                .equalTo(firebaseAuth.getCurrentUser().getEmail())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -68,9 +81,9 @@ public class CheckPetitions extends AppCompatActivity {
                             SymptomsPetition symptomsPetition = iterator.next().getValue(SymptomsPetition.class);
                             symptomsPetitions.add(symptomsPetition);
                         }
-                        CheckPetitionsAdapter myPetitionsAdapter = new CheckPetitionsAdapter(symptomsPetitions, CheckPetitions.this);
-                        RecyclerView recyclerView = findViewById(R.id.checkPetitionsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(CheckPetitions.this));
+                        MyPetitionsAdapter myPetitionsAdapter = new MyPetitionsAdapter(symptomsPetitions, MyPetitions.this);
+                        RecyclerView recyclerView = findViewById(R.id.myPetitionsList);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(MyPetitions.this));
                         recyclerView.setAdapter(myPetitionsAdapter);
                     }
 
@@ -83,6 +96,8 @@ public class CheckPetitions extends AppCompatActivity {
 
     public void getItemsBySearch(String keywords){
         firebaseDatabase.getReference("petitions")
+                .orderByChild("user/email")
+                .equalTo(firebaseAuth.getCurrentUser().getEmail())
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -92,11 +107,11 @@ public class CheckPetitions extends AppCompatActivity {
                             SymptomsPetition symptomsPetition = iterator.next().getValue(SymptomsPetition.class);
                             if(symptomsPetition.getTitle().toLowerCase().contains(keywords.toLowerCase()) ||
                                     symptomsPetition.getDescription().toLowerCase().contains(keywords.toLowerCase()))
-                                symptomsPetitions.add(symptomsPetition);
+                            symptomsPetitions.add(symptomsPetition);
                         }
-                        CheckPetitionsAdapter myPetitionsAdapter = new CheckPetitionsAdapter(symptomsPetitions, CheckPetitions.this);
-                        RecyclerView recyclerView = findViewById(R.id.checkPetitionsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(CheckPetitions.this));
+                        MyPetitionsAdapter myPetitionsAdapter = new MyPetitionsAdapter(symptomsPetitions, MyPetitions.this);
+                        RecyclerView recyclerView = findViewById(R.id.myPetitionsList);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(MyPetitions.this));
                         recyclerView.setAdapter(myPetitionsAdapter);
                     }
 
@@ -107,10 +122,12 @@ public class CheckPetitions extends AppCompatActivity {
                 });
     }
 
-    public void searchButtonAction(View view){
-        Intent intent = new Intent(this, this.getClass());
-        intent.putExtra("keyWords",keyWordsField.getText().toString().trim());
-        startActivity(intent);
+    public void openSendPetition(View view){
+        startActivity(new Intent(this, SendPetitions.class));
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainActivity.class));
+    }
 }

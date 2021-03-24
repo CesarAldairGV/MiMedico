@@ -8,7 +8,9 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mimedico.model.Roles;
@@ -20,14 +22,16 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.UUID;
 import java.util.regex.Pattern;
 
-import static com.example.mimedico.utils.ChangeLanguage.changeLanguage;
-
 public class Signup extends AppCompatActivity {
 
+    private EditText firstnameField;
+    private EditText lastnameField;
     private EditText usernameField;
     private EditText emailField;
     private EditText passwordField;
     private EditText birthdateField;
+    private Button signupButton;
+    private TextView signupLoginButton;
     private View progressBar;
 
     private FirebaseAuth firebaseAuth;
@@ -39,15 +43,22 @@ public class Signup extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup);
 
+        firstnameField = findViewById(R.id.signupFirstname);
+        lastnameField = findViewById(R.id.signupLastname);
         usernameField = findViewById(R.id.signupUsername);
         emailField = findViewById(R.id.signupEmail);
         birthdateField = findViewById(R.id.signupBirthdate);
         passwordField = findViewById(R.id.signupPassword);
+        signupButton = findViewById(R.id.signupButton);
+        signupLoginButton = findViewById(R.id.signupLoginButton);
         progressBar = findViewById(R.id.signupProgressBar);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference();
+
+        signupButton.setOnClickListener(this::singUp);
+        signupLoginButton.setOnClickListener(this::changeToLogin);
     }
 
     public void changeToLogin(View view) {
@@ -55,17 +66,21 @@ public class Signup extends AppCompatActivity {
     }
 
     public void singUp(View view) {
+        String firstname = usernameField.getText().toString().trim();
+        String lastname = emailField.getText().toString().trim();
         String username = usernameField.getText().toString().trim();
         String email = emailField.getText().toString().trim();
         String password = passwordField.getText().toString().trim();
         String birthdate = birthdateField.getText().toString().trim();
-        if (!validateFields(username, email, birthdate, password)) return;
+        if (!validateFields(firstname, lastname, username, email, birthdate, password)) return;
         progressBar.setVisibility(View.VISIBLE);
         User user = User.builder()
                 .id(UUID.randomUUID().toString())
+                .firstName(firstname)
+                .lastName(lastname)
                 .username(username)
                 .email(email)
-                .birthdate(birthdate)
+                .birthDate(birthdate)
                 .role(Roles.USER.getRole())
                 .password(password)
                 .build();
@@ -85,8 +100,16 @@ public class Signup extends AppCompatActivity {
     }
 
 
-    public boolean validateFields(String username, String email, String birthdate, String password) {
+    public boolean validateFields(String firstname, String lastname, String username, String email, String birthdate, String password) {
         boolean exit = true;
+        if (firstname.isEmpty()) {
+            firstnameField.setError("Firstname is required");
+            exit = false;
+        }
+        if (lastname.isEmpty()) {
+            lastnameField.setError("Lastname is required");
+            exit = false;
+        }
         if (username.isEmpty()) {
             usernameField.setError("Username is required");
             exit = false;

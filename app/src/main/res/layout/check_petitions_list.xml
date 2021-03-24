@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/check_petitions_list"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:padding="10dp"
+    app:cardBackgroundColor="#7d78b3"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
-    app:cardBackgroundColor="#7d78b3"
     app:cardUseCompatPadding="true">
 
     <LinearLayout
@@ -19,46 +18,81 @@
         android:paddingStart="5dp"
         android:paddingEnd="5dp">
 
-        <TextView
-            android:id="@+id/checkPetitionTitle"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description"
-            android:fontFamily="@font/baloo"
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"
-            android:paddingStart="5dp" />
-
-        <TextView
-            android:id="@+id/checkPetitionDescription"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Description"
-            android:fontFamily="@font/baloo"
-            android:textColor="#FFFFFF"
+            android:orientation="horizontal"
             android:paddingStart="5dp"
-            android:paddingBottom="15dp"/>
+            android:paddingEnd="5dp">
 
-        <TextView
-            android:id="@+id/checkPetitionDate"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Date"
-            android:fontFamily="@font/baloo"
-            android:textColor="#FFFFFF"
-            android:paddingStart="5dp"/>
+            <ImageView
+                android:id="@+id/checkPetitionImage"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone"
+                app:srcCompat="@android:drawable/list_selector_background" />
 
+            <ProgressBar
+                android:id="@+id/checkPetitionProgressBar"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="10dp"
+                android:visibility="gone"
+                app:srcCompat="@android:drawable/list_selector_background" />
 
-            <Button
-                android:id="@+id/checkPetitionSendButton"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/check_petitions_send"
-                android:background="@drawable/round_bg"
-                android:fontFamily="@font/baloo"
-                android:layout_marginBottom="10dp"
-                app:backgroundTint="#3F60F1"/>
-    </LinearLayout>
+                android:orientation="vertical"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp">
 
+                <TextView
+                    android:id="@+id/checkPetitionTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:text="Description"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/checkPetitionDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="Description"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/checkPetitionDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:text="Date"
+                    android:textColor="#FFFFFF" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/checkPetitionSendButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/round_bg"
+            android:fontFamily="@font/baloo"
+            android:text="@string/check_petitions_send"
+            app:backgroundTint="#3F60F1" />
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>

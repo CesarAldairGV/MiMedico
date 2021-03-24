@@ -20,7 +20,7 @@ public class MySymptomsPetitionDto implements Comparable<MySymptomsPetitionDto>{
     private String description;
     private String petitionDate;
     private String medicId;
-    private Uri image;
+    private Uri imageUri;
     private boolean petitionAccepted;
     private boolean hasImage;
 

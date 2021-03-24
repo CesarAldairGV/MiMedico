@@ -9,8 +9,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mimedico.model.Roles;
@@ -29,6 +31,8 @@ public class Login extends AppCompatActivity {
 
     private EditText emailField;
     private EditText passwordField;
+    private Button loginButton;
+    private TextView loginSignupButton;
     private View progressBar;
     private Spinner rolesSpinner;
 
@@ -43,6 +47,8 @@ public class Login extends AppCompatActivity {
 
         emailField = findViewById(R.id.loginEmail);
         passwordField = findViewById(R.id.loginPassword);
+        loginButton = findViewById(R.id.loginButton);
+        loginSignupButton = findViewById(R.id.loginSignupButton);
         progressBar = findViewById(R.id.loginProgressBar);
         rolesSpinner = findViewById(R.id.roleSpinner);
 
@@ -54,6 +60,8 @@ public class Login extends AppCompatActivity {
         adapter.setDropDownViewResource(R.layout.support_simple_spinner_dropdown_item);
         rolesSpinner.setAdapter(adapter);
 
+        loginButton.setOnClickListener(this::login);
+        loginSignupButton.setOnClickListener(this::changeToSignup);
     }
 
     public void changeToSignup(View view){

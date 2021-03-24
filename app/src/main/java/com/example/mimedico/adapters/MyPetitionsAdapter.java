@@ -1,22 +1,19 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.media.TimedText;
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mimedico.R;
-import com.example.mimedico.dto.MySymptomsPetitionDto;
 import com.example.mimedico.model.SymptomsPetition;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,6 +23,7 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     public class MyPetitionsHolder extends RecyclerView.ViewHolder{
 
         private TextView petitionDescription, petitionDate, petitionAccepted, petitionTitle;
+        private ProgressBar progressBar;
         private ImageView imageView;
 
         public MyPetitionsHolder(@NonNull View itemView) {
@@ -34,28 +32,40 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             petitionDate = itemView.findViewById(R.id.petitionDate);
             petitionAccepted = itemView.findViewById(R.id.petitionAccepted);
             petitionTitle = itemView.findViewById(R.id.petitionTitle);
-            imageView = itemView.findViewById(R.id.imageView3);
+            imageView = itemView.findViewById(R.id.petitionImage);
+            progressBar = itemView.findViewById(R.id.petitionProgressBar);
         }
 
-        public void bindData(MySymptomsPetitionDto symptomsPetition){
+        public void bindData(SymptomsPetition symptomsPetition){
             petitionTitle.setText(symptomsPetition.getTitle());
             petitionDescription.setText(symptomsPetition.getDescription());
             petitionDate.setText(symptomsPetition.getPetitionDate().toString());
             petitionAccepted.setText(symptomsPetition.isPetitionAccepted() ? "Accepted" : "No Accepted");
-            if(symptomsPetition.isHasImage()){
-                imageView.setVisibility(View.VISIBLE);
-                Picasso.get().load(symptomsPetition.getImage()).into(imageView);
+            if(symptomsPetition.isImage()){
+                progressBar.setVisibility(View.VISIBLE);
+                Picasso.get().load(symptomsPetition.getImageUri()).into(imageView, new Callback() {
+                    @Override
+                    public void onSuccess() {
+                        progressBar.setVisibility(View.GONE);
+                        imageView.setVisibility(View.VISIBLE);
+                    }
+
+                    @Override
+                    public void onError(Exception e) {
+
+                    }
+                });
             }
         }
     }
 
     private final int LOADING_TYPE = 0;
     private final int SYMPTOM_TYPE = 1;
-    private List<MySymptomsPetitionDto> symptomsPetitionList;
+    private List<SymptomsPetition> symptomsPetitionList;
     private LayoutInflater layoutInflater;
     private Context context;
 
-    public MyPetitionsAdapter(List<MySymptomsPetitionDto> symptomsPetitions, Context context){
+    public MyPetitionsAdapter(List<SymptomsPetition> symptomsPetitions, Context context){
         this.symptomsPetitionList = symptomsPetitions;
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);

@@ -11,8 +11,11 @@
         <item>2° Medic</item>
         <item>3° Admin</item>
     </string-array>
+
     <!--Sign Up-->
     <string name="signup_title">Sign up</string>
+    <string name="siguup_firstname">Firstname</string>
+    <string name="signup_lastname">Lastname</string>
     <string name="signup_username">Username</string>
     <string name="signup_email">Email</string>
     <string name="signup_password">Password</string>
@@ -21,13 +24,16 @@
     <string name="singup_title">Title Photo</string>
     <string name="signup_submit">Sign Up</string>
     <string name="signup_login">I already have an account</string>
+
     <!--Menu-->
     <string name="change_language">Change Language</string>
     <string name="logout">Logout</string>
+
     <!--Languages-->
     <string name="languages">Languages</string>
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
+
     <!--Main-->
     <string name="main_user">User: </string>
     <string name="main_email">Email: </string>
@@ -42,15 +48,18 @@
     <string name="main_medic_check">Check Petitions</string>
     <string name="main_medic_patients">My Patients</string>
     <string name="main_medic_notifications">Notifications</string>
+
     <!--Signup-->
     <string name="signup_medic">Signup As a medic</string>
     <string name="signup_medic_image">Upload image of medical certificate</string>
     <string name="signup_medic_select">Select</string>
     <string name="signup_medic_send">Send</string>
+
     <!--Email-->
     <string name="email_no_validate">Email not validate, Check Your email to validate</string>
     <string name="resend">Resend Validation Email</string>
     <string name="reload">Reload Session</string>
+
     <!--My Symptoms-->
     <string name="my_symptoms_title">My Symptoms</string>
     <string name="my_symptoms_placeholder">Key Words</string>

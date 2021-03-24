@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A6C9F5"
-    tools:context=".MySymptoms">
+    tools:context=".MyPetitions">
 
     <TextView
         android:id="@+id/checkPetitionsText"

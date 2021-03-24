@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MiMedico">
         <activity android:name=".CheckPetitions"></activity>
-        <activity android:name=".SendSymptoms" />
-        <activity android:name=".MySymptoms" />
+        <activity android:name=".SendPetitions" />
+        <activity android:name=".MyPetitions" />
         <activity android:name=".EmailNoValidate" />
         <activity android:name=".Language" />
         <activity android:name=".SignupMedic" />

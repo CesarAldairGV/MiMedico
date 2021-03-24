@@ -12,8 +12,11 @@
             <item>2° Medico</item>
             <item>3° Administrador</item>
         </string-array>
+
     <!--Sign Up-->
     <string name="signup_title">Crear Nueva Cuenta</string>
+    <string name="siguup_firstname">Nombres</string>
+    <string name="signup_lastname">Apellidos</string>
     <string name="signup_username">Nombre de Usuario</string>
     <string name="signup_email">Email</string>
     <string name="signup_password">Contraseña</string>
@@ -22,13 +25,16 @@
     <string name="singup_title">Foto de Cedula Medica</string>
     <string name="signup_submit">Registrase</string>
     <string name="signup_login">Ya tengo una cuenta</string>
+
     <!--Menu-->
     <string name="change_language">Cambiar Idioma</string>
     <string name="logout">Cerrar Sesion</string>
+
     <!--Languages-->
     <string name="languages">Lenguajes</string>
     <string name="english">Ingles</string>
     <string name="spanish">Español</string>
+
     <!--Main-->
     <string name="main_user">Usuario: </string>
     <string name="main_email">Email: </string>
@@ -37,21 +43,25 @@
     <string name="main_symptoms">Mis Sintomas</string>
     <string name="main_notifications">Notificaciones</string>
     <string name="main_medic">Registrarse como doctor</string>
+
     <!--MedicMain-->
     <string name="main_medic_medic">Medico: </string>
     <string name="main_medic_email">Email: </string>
     <string name="main_medic_check">Checar Peticiones</string>
     <string name="main_medic_patients">Mis pacientes</string>
     <string name="main_medic_notifications">Notificaciones</string>
+
     <!--Signup-->
     <string name="signup_medic">Registrate como medico</string>
     <string name="signup_medic_image">Cargar una imagen de certificado medico</string>
     <string name="signup_medic_select">Seleccionar</string>
     <string name="signup_medic_send">Send</string>
+
     <!--Email-->
     <string name="email_no_validate">Email no valido, validalo checando tu email</string>
     <string name="resend">Reenviar email de validacion</string>
     <string name="reload">Recargar Sesion</string>
+
     <!--My Symptoms-->
     <string name="my_symptoms_title">Mis Sintomas</string>
     <string name="my_symptoms_placeholder">Palabras Clave</string>

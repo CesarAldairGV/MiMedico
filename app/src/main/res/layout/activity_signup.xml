@@ -34,11 +34,46 @@
         app:layout_constraintTop_toBottomOf="@+id/signupAppTitle" />
 
     <EditText
+        android:id="@+id/signupFirstname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="@string/siguup_firstname"
+        android:inputType="text"
+        android:padding="10dp"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#70ABD3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupTitle" />
+
+    <EditText
+        android:id="@+id/signupLastname"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:ems="10"
+        android:hint="@string/signup_lastname"
+        android:inputType="text"
+        android:padding="10dp"
+        android:background="@drawable/round_bg"
+        app:backgroundTint="#70ABD3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupFirstname" />
+
+    <EditText
         android:id="@+id/signupUsername"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/signup_username"
@@ -49,14 +84,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/signupLastname" />
 
     <EditText
         android:id="@+id/signupEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/signup_email"
@@ -65,7 +100,6 @@
         android:background="@drawable/round_bg"
         app:backgroundTint="#70ABD3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupUsername" />
 
@@ -74,7 +108,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/signup_birthdate"
@@ -83,7 +117,6 @@
         android:background="@drawable/round_bg"
         app:backgroundTint="#70ABD3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupEmail" />
 
@@ -92,7 +125,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:ems="10"
         android:hint="@string/signup_password"
@@ -101,7 +134,6 @@
         android:background="@drawable/round_bg"
         app:backgroundTint="#70ABD3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupBirthdate" />
 
@@ -111,7 +143,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/signup_submit"
-        android:onClick="singUp"
         android:background="@drawable/round_bg"
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
@@ -125,7 +156,6 @@
         android:layout_marginTop="32dp"
         android:text="@string/signup_login"
         android:textColor="#091EAA"
-        android:onClick="changeToLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/signupButton" />

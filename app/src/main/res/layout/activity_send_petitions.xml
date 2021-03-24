@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A6C9F5"
-    tools:context=".SendSymptoms">
+    tools:context=".SendPetitions">
 
     <TextView
-        android:id="@+id/sendSymptomsText"
+        android:id="@+id/sendPetitionText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <EditText
-        android:id="@+id/sendTitleField"
+        android:id="@+id/sendPetitionTitleField"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
@@ -34,11 +34,11 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendSymptomsText"
+        app:layout_constraintTop_toBottomOf="@+id/sendPetitionText"
         app:layout_constraintVertical_bias="0.15" />
 
     <EditText
-        android:id="@+id/sendSymptomsField"
+        android:id="@+id/sendPetitionSymptomsField"
         android:layout_width="0dp"
         android:layout_height="135dp"
         android:fontFamily="@font/baloo"
@@ -51,7 +51,7 @@
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendTitleField" />
+        app:layout_constraintTop_toBottomOf="@+id/sendPetitionTitleField" />
 
 
     <Button
@@ -64,11 +64,11 @@
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendSymptomsField"
+        app:layout_constraintTop_toBottomOf="@+id/sendPetitionSymptomsField"
         app:layout_constraintVertical_bias="0.131" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/sendPetitionImageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="16dp"
@@ -78,27 +78,27 @@
         app:srcCompat="@android:drawable/list_selector_background" />
 
     <Button
-        android:id="@+id/sendSymptomsButton"
+        android:id="@+id/sendPetitionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@drawable/round_bg"
-        android:onClick="sendSymptoms"
+        android:onClick="sendPetition"
         android:text="@string/send_symptoms_send"
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/sendPetitionImageView" />
 
     <ProgressBar
-        android:id="@+id/sendSymptomsProgressBar"
+        android:id="@+id/sendPetitionProgressBar"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sendSymptomsButton"
+        app:layout_constraintTop_toBottomOf="@+id/sendPetitionButton"
         android:visibility="invisible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
