@@ -64,6 +64,8 @@
     <string name="my_symptoms_title">My Symptoms</string>
     <string name="my_symptoms_placeholder">Key Words</string>
     <string name="my_symptoms_search">Search</string>
+    <string name="my_symptoms_messages">Messages</string>
+    <string name="my_symptoms_delete">Delete</string>
 
     <!--Send Symptoms-->
     <string name="send_symptoms_title">Send Symptoms</string>
@@ -75,4 +77,13 @@
     <!--Check Petitions-->
     <string name="check_petitions_text">Check Petitions</string>
     <string name="check_petitions_send">Send Message</string>
+
+    <!--Check One Petition-->
+    <string name="check_one_petition_title">Check Petition</string>
+    <string name="check_one_petition_placeholder">Message</string>
+    <string name="check_one_petition_send">Send</string>
+
+    <!--Petitions Messages-->
+    <string name="petitions_messages_text">Messages</string>
+    <string name="petitions_messages_button">View Details</string>
 </resources>

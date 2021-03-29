@@ -66,8 +66,8 @@ public class Signup extends AppCompatActivity {
     }
 
     public void singUp(View view) {
-        String firstname = usernameField.getText().toString().trim();
-        String lastname = emailField.getText().toString().trim();
+        String firstname = firstnameField.getText().toString().trim();
+        String lastname = lastnameField.getText().toString().trim();
         String username = usernameField.getText().toString().trim();
         String email = emailField.getText().toString().trim();
         String password = passwordField.getText().toString().trim();
@@ -78,7 +78,7 @@ public class Signup extends AppCompatActivity {
                 .id(UUID.randomUUID().toString())
                 .firstName(firstname)
                 .lastName(lastname)
-                .username(username)
+                .userName(username)
                 .email(email)
                 .birthDate(birthdate)
                 .role(Roles.USER.getRole())

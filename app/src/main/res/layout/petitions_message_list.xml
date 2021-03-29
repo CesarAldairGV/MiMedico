@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_petitions_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:padding="10dp"
+    app:cardBackgroundColor="#7d78b3"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/petitionMessageDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:paddingBottom="15dp"
+                    android:text="Description"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/petitionMessageDate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:text="Date"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/petitionMessageMedicName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:text="Accepted"
+                    android:textColor="#FFFFFF" />
+
+                <Button
+                    android:id="@+id/petitionMessageViewCompleteMessage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/round_bg"
+                    android:fontFamily="@font/baloo"
+                    android:text="@string/petitions_messages_button"
+                    app:backgroundTint="#3F60F1" />
+
+            </LinearLayout>
+
+</androidx.cardview.widget.CardView>

@@ -1,18 +1,24 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mimedico.PetitionMessages;
 import com.example.mimedico.R;
 import com.example.mimedico.model.SymptomsPetition;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.FirebaseDatabase;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
@@ -25,6 +31,7 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
         private TextView petitionDescription, petitionDate, petitionAccepted, petitionTitle;
         private ProgressBar progressBar;
         private ImageView imageView;
+        private Button messagesButton, deleteButton;
 
         public MyPetitionsHolder(@NonNull View itemView) {
             super(itemView);
@@ -34,6 +41,8 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             petitionTitle = itemView.findViewById(R.id.petitionTitle);
             imageView = itemView.findViewById(R.id.petitionImage);
             progressBar = itemView.findViewById(R.id.petitionProgressBar);
+            messagesButton = itemView.findViewById(R.id.petitionMessagesButton);
+            deleteButton = itemView.findViewById(R.id.petitionDeleteButton);
         }
 
         public void bindData(SymptomsPetition symptomsPetition){
@@ -41,6 +50,27 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             petitionDescription.setText(symptomsPetition.getDescription());
             petitionDate.setText(symptomsPetition.getPetitionDate().toString());
             petitionAccepted.setText(symptomsPetition.isPetitionAccepted() ? "Accepted" : "No Accepted");
+
+            deleteButton.setOnClickListener(v -> {
+                firebaseDatabase.getReference("petitions")
+                        .child(symptomsPetition.getId())
+                        .setValue(null)
+                        .addOnSuccessListener(command -> {
+                            symptomsPetitionList.remove(symptomsPetition);
+                            MyPetitionsAdapter.this.notifyItemRemoved(getAdapterPosition());
+                            Toast.makeText(context, "Petition Deleted",Toast.LENGTH_SHORT).show();
+                        })
+                        .addOnFailureListener(command -> {
+                            Toast.makeText(context, "Error!",Toast.LENGTH_SHORT).show();
+                        });
+            });
+
+            messagesButton.setOnClickListener(v -> {
+                Intent intent = new Intent(context, PetitionMessages.class);
+                intent.putExtra("petitionId",symptomsPetition.getId());
+                context.startActivity(intent);
+            });
+
             if(symptomsPetition.isImage()){
                 progressBar.setVisibility(View.VISIBLE);
                 Picasso.get().load(symptomsPetition.getImageUri()).into(imageView, new Callback() {
@@ -64,11 +94,13 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
     private List<SymptomsPetition> symptomsPetitionList;
     private LayoutInflater layoutInflater;
     private Context context;
+    private FirebaseDatabase firebaseDatabase;
 
     public MyPetitionsAdapter(List<SymptomsPetition> symptomsPetitions, Context context){
         this.symptomsPetitionList = symptomsPetitions;
         this.context = context;
         this.layoutInflater = LayoutInflater.from(context);
+        firebaseDatabase = FirebaseDatabase.getInstance();
     }
 
     @NonNull

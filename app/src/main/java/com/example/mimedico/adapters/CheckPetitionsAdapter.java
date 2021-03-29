@@ -1,6 +1,7 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.media.TimedText;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mimedico.CheckOnePetition;
 import com.example.mimedico.R;
 import com.example.mimedico.model.SymptomsPetition;
 import com.squareup.picasso.Callback;
@@ -46,7 +48,11 @@ public class CheckPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             checkPetitionTitle.setText(symptomsPetition.getTitle());
             checkPetitionDescription.setText(symptomsPetition.getDescription());
             checkPetitionDate.setText(symptomsPetition.getPetitionDate());
-            sendMessageButton.setOnClickListener(v -> Toast.makeText(itemView.getContext(), symptomsPetition.getTitle(), Toast.LENGTH_LONG).show());
+            sendMessageButton.setOnClickListener(v -> {
+                Intent intent = new Intent(context, CheckOnePetition.class);
+                intent.putExtra("petitionId",symptomsPetition.getId());
+                context.startActivity(intent);
+            });
             if(symptomsPetition.isImage()){
                 progressBar.setVisibility(View.VISIBLE);
                 Picasso.get().load(symptomsPetition.getImageUri()).into(imageView, new Callback() {

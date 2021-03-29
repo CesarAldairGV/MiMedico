@@ -113,4 +113,8 @@ public class CheckPetitions extends AppCompatActivity {
         startActivity(intent);
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this, MainMedic.class));
+    }
 }

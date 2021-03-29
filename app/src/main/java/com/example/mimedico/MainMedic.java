@@ -51,7 +51,7 @@ public class MainMedic extends AppCompatActivity {
                 while(iterator.hasNext()){
                     DataSnapshot dataSnapshot1 = iterator.next();
                     String email = dataSnapshot1.child("email").getValue().toString();
-                    String username = dataSnapshot1.child("username").getValue().toString();
+                    String username = dataSnapshot1.child("userName").getValue().toString();
                     emailText.append(email);
                     usernameText.append(username);
                 }
