@@ -54,6 +54,10 @@ public class Language extends AppCompatActivity {
             Intent intent = new Intent(this, EmailNoValidate.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
+        }else if(getIntent().getStringExtra("parent").equals("MainAdmin")){
+            Intent intent = new Intent(this, MainAdmin.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            startActivity(intent);
         }else {
             super.onBackPressed();
         }

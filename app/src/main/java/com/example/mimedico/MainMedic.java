@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.example.mimedico.model.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -38,10 +37,10 @@ public class MainMedic extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        usernameText = findViewById(R.id.medicUser);
-        emailText = findViewById(R.id.medicEmail);
+        usernameText = findViewById(R.id.adminUser);
+        emailText = findViewById(R.id.adminEmail);
 
-        checkPetitionsButton = findViewById(R.id.medicCheckPetitionsButton);
+        checkPetitionsButton = findViewById(R.id.adminCheckMedicProofButton);
 
         firebaseDatabase.getReference("users").orderByChild("email").equalTo(firebaseAuth.getCurrentUser().getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

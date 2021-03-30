@@ -20,6 +20,7 @@ public class User {
     private String password;
     private String birthDate;
     private String role;
-    private String medicProofUri;
-    private boolean medicSignupPetition;
+    private String medicProofUrl;
+    private String userPhotoUrl;
+    private boolean medicSignUpPetition;
 }

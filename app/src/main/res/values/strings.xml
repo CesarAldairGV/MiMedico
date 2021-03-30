@@ -42,6 +42,7 @@
     <string name="main_symptoms">My Symptoms</string>
     <string name="main_notifications">Notifications</string>
     <string name="main_medic">Signup as Medic</string>
+
     <!--MedicMain-->
     <string name="main_medic_medic">Medic: </string>
     <string name="main_medic_email">Email: </string>
@@ -86,4 +87,9 @@
     <!--Petitions Messages-->
     <string name="petitions_messages_text">Messages</string>
     <string name="petitions_messages_button">View Details</string>
+
+    <!--Admin Main-->
+    <string name="admin_user">Admin: </string>
+    <string name="admin_email">Email: </string>
+    <string name="admin_check_medic_proofs">Check Medic Proofs</string>
 </resources>

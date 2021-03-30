@@ -21,54 +21,91 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <TextView
-        android:id="@+id/uploadText"
+        android:id="@+id/signupMedicProofText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signup_medic_image"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/baloo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        android:text="@string/signup_medic_image"
+        android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicText"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicText" />
 
     <Button
-        android:id="@+id/selectImageButton"
+        android:id="@+id/signupMedicSelectProof"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/signup_medic_select"
-        android:onClick="selectImage"
+        android:layout_marginTop="20dp"
         android:background="@drawable/round_bg"
+        android:text="@string/signup_medic_select"
+        android:layout_marginStart="20dp"
         app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/uploadText"
-        app:layout_constraintVertical_bias="0.098" />
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText" />
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="222dp"
-        android:layout_height="228dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/selectImageButton"
-        app:layout_constraintVertical_bias="0.36"
-        app:srcCompat="?attr/selectableItemBackgroundBorderless" />
+        android:id="@+id/signupMedicProofView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintStart_toEndOf="@+id/signupMedicSelectProof"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText"
+        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
 
-    <Button
-        android:id="@+id/sendButton"
+    <TextView
+        android:id="@+id/signupMedicFaceText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/signup_medic_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicProofView" />
+
+    <Button
+        android:id="@+id/signupMedicSelectPhoto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:background="@drawable/round_bg"
+        android:text="@string/signup_medic_select"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText" />
+
+    <ImageView
+        android:id="@+id/signupMedicPhotoView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="100dp"
+        app:layout_constraintStart_toEndOf="@+id/signupMedicSelectPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText"
+        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+
+    <Button
+        android:id="@+id/signupMedicSendButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:text="@string/signup_medic_send"
-        android:visibility="gone"
-        android:onClick="sendImage"
         android:background="@drawable/round_bg"
         app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicPhotoView" />
+
+    <ProgressBar
+        android:id="@+id/signupMedicProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicSendButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

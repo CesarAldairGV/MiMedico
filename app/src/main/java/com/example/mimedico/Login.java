@@ -108,6 +108,12 @@ public class Login extends AppCompatActivity {
                     }else {
                         startActivity(new Intent(Login.this, MainMedic.class));
                     }
+                }else if(role.equals(Roles.ADMIN.getRole())){
+                    if(roleInField.charAt(0) != '3'){
+                        Toast.makeText(getApplicationContext(), "Incorrect Role",Toast.LENGTH_LONG).show();
+                    }else {
+                        startActivity(new Intent(Login.this, MainAdmin.class));
+                    }
                 }
             }
             @Override
