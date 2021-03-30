@@ -12,8 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.mimedico.adapters.CheckPetitionsAdapter;
-import com.example.mimedico.adapters.MyPetitionsAdapter;
-import com.example.mimedico.dto.MySymptomsPetitionDto;
 import com.example.mimedico.model.SymptomsPetition;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,9 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
 public class CheckPetitions extends AppCompatActivity {
 
@@ -44,8 +40,8 @@ public class CheckPetitions extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
 
-        searchButton = findViewById(R.id.checkPetitionsSearchButton);
-        keyWordsField = findViewById(R.id.checkPetitionsKeyWordsField);
+        searchButton = findViewById(R.id.checkMedicPetitionsButton);
+        keyWordsField = findViewById(R.id.checkMedicPetitionsField);
 
         String keyWords = getIntent().getStringExtra("keyWords");
         if(keyWords == null) {
@@ -69,7 +65,7 @@ public class CheckPetitions extends AppCompatActivity {
                             symptomsPetitions.add(symptomsPetition);
                         }
                         CheckPetitionsAdapter myPetitionsAdapter = new CheckPetitionsAdapter(symptomsPetitions, CheckPetitions.this);
-                        RecyclerView recyclerView = findViewById(R.id.checkPetitionsList);
+                        RecyclerView recyclerView = findViewById(R.id.checkMedicPetitionsList);
                         recyclerView.setLayoutManager(new LinearLayoutManager(CheckPetitions.this));
                         recyclerView.setAdapter(myPetitionsAdapter);
                     }
@@ -95,7 +91,7 @@ public class CheckPetitions extends AppCompatActivity {
                                 symptomsPetitions.add(symptomsPetition);
                         }
                         CheckPetitionsAdapter myPetitionsAdapter = new CheckPetitionsAdapter(symptomsPetitions, CheckPetitions.this);
-                        RecyclerView recyclerView = findViewById(R.id.checkPetitionsList);
+                        RecyclerView recyclerView = findViewById(R.id.checkMedicPetitionsList);
                         recyclerView.setLayoutManager(new LinearLayoutManager(CheckPetitions.this));
                         recyclerView.setAdapter(myPetitionsAdapter);
                     }

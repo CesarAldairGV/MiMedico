@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A6C9F5"
-    tools:context=".MyPetitions">
+    tools:context=".CheckMedicProofsPetitions">
 
     <TextView
         android:id="@+id/checkMedicPetitionsText"

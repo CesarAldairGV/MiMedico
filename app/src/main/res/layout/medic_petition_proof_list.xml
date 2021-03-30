@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/my_petitions_list"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:padding="10dp"
+    app:cardBackgroundColor="#7d78b3"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="4dp"
+    app:cardUseCompatPadding="true">
+
+            <LinearLayout
+                android:padding="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/petitionProofMedicName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:text="Medic Name"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20dp" />
+
+                <TextView
+                    android:id="@+id/petitionProofUsername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:paddingBottom="5dp"
+                    android:text="Username"
+                    android:textColor="#FFFFFF" />
+
+                <TextView
+                    android:id="@+id/petitionProofEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/baloo"
+                    android:paddingStart="5dp"
+                    android:text="Email"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:paddingStart="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:id="@+id/petitionProofView"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone"
+                        app:srcCompat="@android:drawable/list_selector_background" />
+
+                    <ProgressBar
+                        android:id="@+id/petitionProofProgressBar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/list_selector_background" />
+
+                    <ImageView
+                        android:id="@+id/petitionPhotoView"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="gone"
+                        app:srcCompat="@android:drawable/list_selector_background" />
+
+                    <ProgressBar
+                        android:id="@+id/petitionPhotoProgressBar"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="10dp"
+                        android:visibility="invisible"
+                        app:srcCompat="@android:drawable/list_selector_background" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:paddingTop="5dp"
+                    android:paddingStart="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+                        android:id="@+id/petitionProofAcceptButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/round_bg"
+                        android:fontFamily="@font/baloo"
+                        android:text="Accept"
+                        app:backgroundTint="#3F60F1" />
+
+                    <Button
+                        android:id="@+id/petitionProofRejectButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:background="@drawable/round_bg"
+                        android:fontFamily="@font/baloo"
+                        android:text="Reject"
+                        app:backgroundTint="#cc0000" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>

@@ -17,6 +17,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.view.View;
 
 import org.w3c.dom.Text;
 
@@ -43,6 +44,12 @@ public class MainAdmin extends AppCompatActivity {
         checkMedicalProofButton = findViewById(R.id.adminCheckMedicProofButton);
 
         fillFields();
+
+        checkMedicalProofButton.setOnClickListener(this::openCheckMedicalProofs);
+    }
+
+    public void openCheckMedicalProofs(View view){
+        startActivity(new Intent(this, CheckMedicProofsPetitions.class));
     }
 
     public void fillFields(){

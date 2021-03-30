@@ -12,7 +12,6 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.example.mimedico.adapters.MyPetitionsAdapter;
-import com.example.mimedico.dto.MySymptomsPetitionDto;
 import com.example.mimedico.model.SymptomsPetition;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
@@ -23,9 +22,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 
 public class MyPetitions extends AppCompatActivity {
 
