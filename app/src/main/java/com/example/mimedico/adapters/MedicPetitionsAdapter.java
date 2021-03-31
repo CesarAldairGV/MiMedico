@@ -1,6 +1,7 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mimedico.MedicPetition;
 import com.example.mimedico.R;
 import com.example.mimedico.model.User;
 import com.squareup.picasso.Callback;
@@ -27,7 +29,7 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
         private TextView name, username, email;
         private ProgressBar proofBar, photoBar;
         private ImageView proofView, photoView;
-        private Button accept, reject;
+        private Button view;
 
         public MedicPetitionHolder(@NonNull View itemView) {
             super(itemView);
@@ -38,14 +40,19 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
             photoBar = itemView.findViewById(R.id.petitionPhotoProgressBar);
             proofView = itemView.findViewById(R.id.petitionProofView);
             photoView = itemView.findViewById(R.id.petitionPhotoView);
-            accept = itemView.findViewById(R.id.petitionProofRejectButton);
-            reject = itemView.findViewById(R.id.petitionProofRejectButton);
+            view = itemView.findViewById(R.id.petitionProofViewButton);
         }
 
         public void bindData(User medic){
             name.setText(medic.getFirstName() + " " + medic.getLastName());
             username.setText(medic.getUserName());
             email.setText(medic.getEmail());
+
+            view.setOnClickListener(v -> {
+                Intent intent = new Intent(context, MedicPetition.class);
+                intent.putExtra("userId",medic.getId());
+                context.startActivity(intent);
+            });
 
             proofBar.setVisibility(View.VISIBLE);
             photoBar.setVisibility(View.VISIBLE);

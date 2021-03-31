@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.05" />
 
     <TextView
-        android:id="@+id/checkOnePetitionUsername"
+        android:id="@+id/medicPetitionUsername"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkOnePetitionTitle" />
 
     <TextView
-        android:id="@+id/checkOnePetitionFirstname"
+        android:id="@+id/medicPetitionFirstname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -42,10 +42,10 @@
         android:text="Firstname"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOnePetitionUsername" />
+        app:layout_constraintTop_toBottomOf="@+id/medicPetitionUsername" />
 
     <TextView
-        android:id="@+id/checkOnePetitionLastname"
+        android:id="@+id/medicPetitionLastname"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -54,10 +54,10 @@
         android:text="Lastname"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOnePetitionFirstname" />
+        app:layout_constraintTop_toBottomOf="@+id/medicPetitionFirstname" />
 
     <TextView
-        android:id="@+id/checkOnePetitionEmail"
+        android:id="@+id/medicPetitionEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -66,7 +66,7 @@
         android:text="Email"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOnePetitionLastname" />
+        app:layout_constraintTop_toBottomOf="@+id/medicPetitionLastname" />
 
     <ImageView
         android:id="@+id/checkOnePetitionImage"
@@ -82,7 +82,7 @@
         android:visibility="gone"/>
 
     <TextView
-        android:id="@+id/checkOnePetitionDate"
+        android:id="@+id/medicPetitionDate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
@@ -91,7 +91,7 @@
         android:text="Date"
         android:textSize="10sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOnePetitionEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/medicPetitionEmail" />
 
     <TextView
         android:id="@+id/checkOnePetitionDescription"
@@ -107,7 +107,7 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkOnePetitionDate" />
+        app:layout_constraintTop_toBottomOf="@+id/medicPetitionDate" />
 
     <EditText
         android:id="@+id/checkOnePetitionMessage"

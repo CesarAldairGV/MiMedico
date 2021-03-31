@@ -47,11 +47,11 @@ public class CheckOnePetition extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
 
-        usernameText = findViewById(R.id.checkOnePetitionUsername);
-        firstnameText = findViewById(R.id.checkOnePetitionFirstname);
-        lastnameText = findViewById(R.id.checkOnePetitionLastname);
-        emailText = findViewById(R.id.checkOnePetitionEmail);
-        dateText = findViewById(R.id.checkOnePetitionDate);
+        usernameText = findViewById(R.id.medicPetitionUsername);
+        firstnameText = findViewById(R.id.medicPetitionFirstname);
+        lastnameText = findViewById(R.id.medicPetitionLastname);
+        emailText = findViewById(R.id.medicPetitionEmail);
+        dateText = findViewById(R.id.medicPetitionDate);
         titleText = findViewById(R.id.checkOnePetitionTitle);
         descriptionText = findViewById(R.id.checkOnePetitionDescription);
         sendButton = findViewById(R.id.checkOnePetitionSend);

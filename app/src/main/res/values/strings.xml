@@ -52,7 +52,8 @@
 
     <!--Signup-->
     <string name="signup_medic">Signup As a medic</string>
-    <string name="signup_medic_image">Upload image of medical certificate</string>
+    <string name="signup_medic_image">Select image of medical certificate</string>
+    <string name="signup_medic_photo">Select photo of your face</string>
     <string name="signup_medic_select">Select</string>
     <string name="signup_medic_send">Send</string>
 

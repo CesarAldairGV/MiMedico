@@ -96,25 +96,14 @@
                     android:layout_height="wrap_content">
 
                     <Button
-                        android:id="@+id/petitionProofAcceptButton"
+                        android:id="@+id/petitionProofViewButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/round_bg"
                         android:fontFamily="@font/baloo"
-                        android:text="Accept"
+                        android:text="View"
                         app:backgroundTint="#3F60F1" />
-
-                    <Button
-                        android:id="@+id/petitionProofRejectButton"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="10dp"
-                        android:layout_marginBottom="10dp"
-                        android:background="@drawable/round_bg"
-                        android:fontFamily="@font/baloo"
-                        android:text="Reject"
-                        app:backgroundTint="#cc0000" />
 
                 </LinearLayout>
 
