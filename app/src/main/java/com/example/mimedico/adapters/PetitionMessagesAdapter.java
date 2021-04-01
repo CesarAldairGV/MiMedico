@@ -1,6 +1,7 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mimedico.MedicMessage;
+import com.example.mimedico.PetitionMessages;
 import com.example.mimedico.R;
 import com.example.mimedico.model.SymptomsPetitionMessage;
 
@@ -36,6 +39,14 @@ public class PetitionMessagesAdapter extends RecyclerView.Adapter<PetitionMessag
             description.setText(symptomsPetitionsMessage.getMessage());
             doctorName.setText(symptomsPetitionsMessage.getMedic().getFirstName() + " " + symptomsPetitionsMessage.getMedic().getLastName());
             date.setText(symptomsPetitionsMessage.getDate());
+
+            String petitionId = ((PetitionMessages)context).petitionId;
+            viewButton.setOnClickListener(v -> {
+                Intent intent = new Intent(context, MedicMessage.class);
+                intent.putExtra("petitionId", petitionId);
+                intent.putExtra("messageId", symptomsPetitionsMessage.getId());
+                context.startActivity(intent);
+            });
         }
     }
 

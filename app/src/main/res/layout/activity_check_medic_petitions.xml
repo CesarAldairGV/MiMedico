@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A6C9F5"
-    tools:context=".CheckMedicProofsPetitions">
+    tools:context=".CheckMedicPetitions">
 
     <TextView
         android:id="@+id/checkMedicPetitionsText"
@@ -28,10 +28,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/checkMedicPetitionsField"
+        app:layout_constraintTop_toBottomOf="@+id/checkMedicPetitionsText"
         app:layout_constraintVertical_bias="0.1" />
 
-    <EditText
+    <!--<EditText
         android:id="@+id/checkMedicPetitionsField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -57,6 +57,6 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/checkMedicPetitionsField"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toEndOf="@+id/checkMedicPetitionsField" />
+        app:layout_constraintStart_toEndOf="@+id/checkMedicPetitionsField" />-->
 
 </androidx.constraintlayout.widget.ConstraintLayout>

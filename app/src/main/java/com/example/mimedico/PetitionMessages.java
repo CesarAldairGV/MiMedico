@@ -23,7 +23,7 @@ import java.util.List;
 public class PetitionMessages extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
-    private String petitionId;
+    public String petitionId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

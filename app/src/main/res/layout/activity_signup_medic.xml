@@ -20,6 +20,35 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.05" />
 
+    <EditText
+        android:id="@+id/signupMedicSchool"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_bg"
+        android:inputType="text"
+        android:hint="@string/signup_medic_school"
+        app:backgroundTint="#70ABD3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicText" />
+
+    <EditText
+        android:id="@+id/signupMedicAgeOfExperience"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:background="@drawable/round_bg"
+        android:inputType="number"
+        android:hint="@string/signup_medic_years"
+        app:backgroundTint="#70ABD3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicSchool" />
+
     <TextView
         android:id="@+id/signupMedicProofText"
         android:layout_width="wrap_content"
@@ -29,7 +58,7 @@
         android:text="@string/signup_medic_image"
         android:layout_marginStart="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicText" />
+        app:layout_constraintTop_toBottomOf="@+id/signupMedicAgeOfExperience" />
 
     <Button
         android:id="@+id/signupMedicSelectProof"
@@ -51,7 +80,7 @@
         android:layout_marginTop="12dp"
         app:layout_constraintStart_toEndOf="@+id/signupMedicSelectProof"
         app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText"
-        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+        app:srcCompat="?attr/selectableItemBackground" />
 
     <TextView
         android:id="@+id/signupMedicFaceText"
@@ -84,7 +113,7 @@
         android:layout_marginStart="100dp"
         app:layout_constraintStart_toEndOf="@+id/signupMedicSelectPhoto"
         app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText"
-        app:srcCompat="@android:drawable/screen_background_dark_transparent" />
+        app:srcCompat="?attr/selectableItemBackground" />
 
     <Button
         android:id="@+id/signupMedicSendButton"

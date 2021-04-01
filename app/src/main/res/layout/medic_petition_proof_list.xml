@@ -28,22 +28,22 @@
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/petitionProofUsername"
+                    android:id="@+id/petitionProofInstitution"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
                     android:paddingBottom="5dp"
-                    android:text="Username"
+                    android:text="Institution"
                     android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/petitionProofEmail"
+                    android:id="@+id/petitionProofYears"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:text="Email"
+                    android:text="YearsOfExperience"
                     android:textColor="#FFFFFF" />
 
                 <LinearLayout
@@ -102,7 +102,7 @@
                         android:layout_marginBottom="10dp"
                         android:background="@drawable/round_bg"
                         android:fontFamily="@font/baloo"
-                        android:text="View"
+                        android:text="@string/medic_petition_list_view"
                         app:backgroundTint="#3F60F1" />
 
                 </LinearLayout>

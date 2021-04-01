@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6C9F5"
+    tools:context=".MedicMessage">
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/medicMessagePhotoView"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".50"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="?attr/selectableItemBackground" />
+
+        <ImageView
+            android:id="@+id/medicMessageProofView"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_weight=".50"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="?attr/selectableItemBackground" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/medicMessageName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/medic_message_name"
+        android:textSize="10dp"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+    <TextView
+        android:id="@+id/medicMessageInstitution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/medic_message_institution"
+        android:textSize="10dp"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageName" />
+
+    <TextView
+        android:id="@+id/medicMessageYears"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/medic_message_years"
+        android:textSize="10dp"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageInstitution" />
+
+    <TextView
+        android:id="@+id/medicMessageEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="@string/medic_message_email"
+        android:textSize="10dp"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageYears" />
+
+    <TextView
+        android:id="@+id/medicMessageMessageText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/medic_message_message"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageEmail" />
+
+    <TextView
+        android:id="@+id/medicMessageMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="Lorem Ipsum"
+        android:fontFamily="@font/baloo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageMessageText" />
+
+    <Button
+        android:id="@+id/medicMessageAccept"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/medic_message_accept"
+        android:textSize="10dp"
+        android:background="@drawable/round_bg"
+        android:fontFamily="@font/baloo"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageMessage" />
+
+    <Button
+        android:id="@+id/medicMessageReject"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/medic_message_reject"
+        android:textSize="10dp"
+        android:background="@drawable/round_bg"
+        android:fontFamily="@font/baloo"
+        app:backgroundTint="#cc0000"
+        app:layout_constraintStart_toEndOf="@+id/medicMessageAccept"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageMessage" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

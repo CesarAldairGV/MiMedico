@@ -2,7 +2,6 @@ package com.example.mimedico.adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,7 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
 
     public class MedicPetitionHolder extends RecyclerView.ViewHolder{
 
-        private TextView name, username, email;
+        private TextView name, institution, years;
         private ProgressBar proofBar, photoBar;
         private ImageView proofView, photoView;
         private Button view;
@@ -34,8 +33,8 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
         public MedicPetitionHolder(@NonNull View itemView) {
             super(itemView);
             name = itemView.findViewById(R.id.petitionProofMedicName);
-            username = itemView.findViewById(R.id.petitionProofUsername);
-            email = itemView.findViewById(R.id.petitionProofEmail);
+            institution = itemView.findViewById(R.id.petitionProofInstitution);
+            years = itemView.findViewById(R.id.petitionProofYears);
             proofBar = itemView.findViewById(R.id.petitionProofProgressBar);
             photoBar = itemView.findViewById(R.id.petitionPhotoProgressBar);
             proofView = itemView.findViewById(R.id.petitionProofView);
@@ -45,8 +44,8 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
 
         public void bindData(User medic){
             name.setText(medic.getFirstName() + " " + medic.getLastName());
-            username.setText(medic.getUserName());
-            email.setText(medic.getEmail());
+            institution.setText(medic.getInstitution());
+            years.setText(medic.getYearsOfExperience() + " Years Of Experience");
 
             view.setOnClickListener(v -> {
                 Intent intent = new Intent(context, MedicPetition.class);

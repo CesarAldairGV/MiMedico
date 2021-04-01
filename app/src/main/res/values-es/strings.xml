@@ -53,10 +53,12 @@
 
     <!--Signup-->
     <string name="signup_medic">Registrate como medico</string>
+    <string name="signup_medic_school">Nombre de la institucion</string>
+    <string name="signup_medic_years">Años de experiencia</string>
     <string name="signup_medic_image">Selecciona una imagen de certificado medico</string>
     <string name="signup_medic_photo">Selecciona una foto de tu rostro</string>
     <string name="signup_medic_select">Seleccionar</string>
-    <string name="signup_medic_send">Send</string>
+    <string name="signup_medic_send">Enviar</string>
 
     <!--Email-->
     <string name="email_no_validate">Email no valido, validalo checando tu email</string>
@@ -95,4 +97,20 @@
     <string name="admin_email">Email: </string>
     <string name="admin_check_medic_proofs">Checar Comprobantes Medicos</string>
 
+    <!--Medic Petitions List -->
+    <string name="medic_petition_list_view">Ver</string>
+
+    <!--Medic Petition-->
+    <string name="medic_petition_photos">Fotos</string>
+    <string name="medic_petition_accept">Aceptar</string>
+    <string name="medic_petition_reject">Rechazar</string>
+
+    <!--Medic Message-->
+    <string name="medic_message_name">Nombre: </string>
+    <string name="medic_message_institution">Institucion: </string>
+    <string name="medic_message_years">Años de Experiencia: </string>
+    <string name="medic_message_email">Email: </string>
+    <string name="medic_message_message">Mensaje: </string>
+    <string name="medic_message_accept">Aceptar este medico</string>
+    <string name="medic_message_reject">Rechazar este medico</string>
 </resources>

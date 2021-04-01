@@ -52,6 +52,8 @@
 
     <!--Signup-->
     <string name="signup_medic">Signup As a medic</string>
+    <string name="signup_medic_school">Name of the institution</string>
+    <string name="signup_medic_years">Years Of Experience</string>
     <string name="signup_medic_image">Select image of medical certificate</string>
     <string name="signup_medic_photo">Select photo of your face</string>
     <string name="signup_medic_select">Select</string>
@@ -93,4 +95,21 @@
     <string name="admin_user">Admin: </string>
     <string name="admin_email">Email: </string>
     <string name="admin_check_medic_proofs">Check Medic Proofs</string>
+
+    <!--Medic Petitions List -->
+    <string name="medic_petition_list_view">View</string>
+
+    <!--Medic Petition-->
+    <string name="medic_petition_photos">Photos</string>
+    <string name="medic_petition_accept">Accept</string>
+    <string name="medic_petition_reject">Reject</string>
+
+    <!--Medic Message-->
+    <string name="medic_message_name">Name: </string>
+    <string name="medic_message_institution">Institution: </string>
+    <string name="medic_message_years">Years Of Experience: </string>
+    <string name="medic_message_email">Email: </string>
+    <string name="medic_message_message">Message: </string>
+    <string name="medic_message_accept">Accept this medic</string>
+    <string name="medic_message_reject">Reject this medic</string>
 </resources>

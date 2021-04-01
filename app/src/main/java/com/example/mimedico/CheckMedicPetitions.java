@@ -8,7 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.example.mimedico.adapters.CheckPetitionsAdapter;
 import com.example.mimedico.adapters.MedicPetitionsAdapter;
 import com.example.mimedico.model.User;
 import com.google.firebase.database.DataSnapshot;
@@ -20,14 +19,14 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class CheckMedicProofsPetitions extends AppCompatActivity {
+public class CheckMedicPetitions extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_check_medic_proofs_petitions);
+        setContentView(R.layout.activity_check_medic_petitions);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -43,9 +42,9 @@ public class CheckMedicProofsPetitions extends AppCompatActivity {
                             User medic = iterator.next().getValue(User.class);
                             medics.add(medic);
                         }
-                        MedicPetitionsAdapter medicPetitionsAdapter = new MedicPetitionsAdapter(medics, CheckMedicProofsPetitions.this);
+                        MedicPetitionsAdapter medicPetitionsAdapter = new MedicPetitionsAdapter(medics, CheckMedicPetitions.this);
                         RecyclerView recyclerView = findViewById(R.id.checkMedicPetitionsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(CheckMedicProofsPetitions.this));
+                        recyclerView.setLayoutManager(new LinearLayoutManager(CheckMedicPetitions.this));
                         recyclerView.setAdapter(medicPetitionsAdapter);
                     }
                     @Override

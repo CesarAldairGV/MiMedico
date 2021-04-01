@@ -19,8 +19,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import android.view.View;
 
-import org.w3c.dom.Text;
-
 public class MainAdmin extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
@@ -49,7 +47,7 @@ public class MainAdmin extends AppCompatActivity {
     }
 
     public void openCheckMedicalProofs(View view){
-        startActivity(new Intent(this, CheckMedicProofsPetitions.class));
+        startActivity(new Intent(this, CheckMedicPetitions.class));
     }
 
     public void fillFields(){

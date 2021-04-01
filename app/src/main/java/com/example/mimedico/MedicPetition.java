@@ -26,7 +26,7 @@ public class MedicPetition extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
 
-    private TextView name, username, email, age;
+    private TextView name, username, email, age, years, institution;
     private Button accept, reject;
     private ProgressBar photoBar, proofBar;
     private ImageView photoView, proofView;
@@ -43,6 +43,8 @@ public class MedicPetition extends AppCompatActivity {
         username = findViewById(R.id.medicPetitionUsername);
         email = findViewById(R.id.medicPetitionEmail);
         age = findViewById(R.id.medicPetitionDate);
+        years = findViewById(R.id.medicPetitionYears);
+        institution = findViewById(R.id.medicPetitionInstitution);
 
         accept = findViewById(R.id.medicPetitionAccept);
         reject = findViewById(R.id.medicPetitionReject);
@@ -67,6 +69,8 @@ public class MedicPetition extends AppCompatActivity {
                         username.setText(user.getUserName());
                         email.setText(user.getEmail());
                         age.setText(user.getBirthDate());
+                        years.setText(user.getYearsOfExperience() + " Years Of Experience");
+                        institution.setText(user.getInstitution());
 
                         Picasso.get().load(user.getUserPhotoUrl()).into(photoView, new Callback() {
                             @Override
@@ -103,7 +107,7 @@ public class MedicPetition extends AppCompatActivity {
                 .setValue(user)
                 .addOnSuccessListener(command -> {
                     Toast.makeText(getApplicationContext(), "Rejected Correctly!", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(this, CheckMedicProofsPetitions.class));
+                    startActivity(new Intent(this, CheckMedicPetitions.class));
                 });
     }
 
@@ -115,7 +119,7 @@ public class MedicPetition extends AppCompatActivity {
                 .setValue(user)
                 .addOnSuccessListener(command -> {
                     Toast.makeText(getApplicationContext(), "Accepted Correctly!", Toast.LENGTH_LONG).show();
-                    startActivity(new Intent(this, CheckMedicProofsPetitions.class));
+                    startActivity(new Intent(this, CheckMedicPetitions.class));
                 });
     }
 }

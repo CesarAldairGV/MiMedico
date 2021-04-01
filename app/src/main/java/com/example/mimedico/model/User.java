@@ -22,5 +22,7 @@ public class User {
     private String role;
     private String medicProofUrl;
     private String userPhotoUrl;
+    private String institution;
+    private String yearsOfExperience;
     private boolean medicSignUpPetition;
 }

@@ -11,8 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiMedico">
-        <activity android:name=".MedicPetition"></activity>
-        <activity android:name=".CheckMedicProofsPetitions" />
+        <activity android:name=".MedicMessage"></activity>
+        <activity android:name=".MedicPetition" />
+        <activity android:name=".CheckMedicPetitions" />
         <activity android:name=".MainAdmin" />
         <activity android:name=".PetitionMessages" />
         <activity android:name=".CheckOnePetition" />
