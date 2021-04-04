@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6C9F5"
+    tools:context=".ChatUser">
+
+    <TextView
+        android:id="@+id/chatUserText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/user_chat_id"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/chatUserTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/user_chat_title"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatUserText" />
+
+    <TextView
+        android:id="@+id/chatUserMedic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:fontFamily="@font/baloo"
+        android:text="@string/user_chat_medic"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chatUserTitle" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatUserList"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/chatUserMessage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chatUserMedic" />
+
+    <EditText
+        android:id="@+id/chatUserMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/user_chat_placeholder"
+        android:fontFamily="@font/baloo"
+        android:padding="10dp"
+        app:backgroundTint="#70ABD3"
+        android:background="@drawable/round_bg"
+        app:layout_constraintBottom_toTopOf="@+id/chatUserButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/chatUserButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo"
+        android:text="@string/user_chat_send"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

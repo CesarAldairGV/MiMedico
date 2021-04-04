@@ -16,67 +16,71 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
-            android:id="@+id/medicMessagePhotoView"
-            android:layout_width="0dp"
-            android:layout_height="200dp"
-            android:layout_weight=".50"
-            android:adjustViewBounds="true"
-            android:scaleType="fitCenter"
-            app:srcCompat="?attr/selectableItemBackground" />
-
-        <ImageView
             android:id="@+id/medicMessageProofView"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_weight=".50"
+            android:layout_weight="1"
             android:adjustViewBounds="true"
             android:scaleType="fitCenter"
             app:srcCompat="?attr/selectableItemBackground" />
     </LinearLayout>
 
+    <ImageView
+        android:id="@+id/medicMessagePhotoView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_weight=".50"
+        android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:srcCompat="?attr/selectableItemBackground" />
+
     <TextView
         android:id="@+id/medicMessageName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/medic_message_name"
         android:textSize="10dp"
-        android:fontFamily="@font/baloo"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/medicMessagePhotoView"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <TextView
         android:id="@+id/medicMessageInstitution"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/medic_message_institution"
         android:textSize="10dp"
-        android:fontFamily="@font/baloo"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/medicMessagePhotoView"
         app:layout_constraintTop_toBottomOf="@+id/medicMessageName" />
 
     <TextView
         android:id="@+id/medicMessageYears"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/medic_message_years"
         android:textSize="10dp"
-        android:fontFamily="@font/baloo"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/medicMessagePhotoView"
         app:layout_constraintTop_toBottomOf="@+id/medicMessageInstitution" />
 
     <TextView
         android:id="@+id/medicMessageEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="10dp"
+        android:fontFamily="@font/baloo"
         android:text="@string/medic_message_email"
         android:textSize="10dp"
-        android:fontFamily="@font/baloo"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/medicMessagePhotoView"
         app:layout_constraintTop_toBottomOf="@+id/medicMessageYears" />
 
     <TextView
@@ -85,10 +89,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="@string/medic_message_message"
         android:fontFamily="@font/baloo"
+        android:text="@string/medic_message_message"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/medicMessageEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/medicMessagePhotoView" />
 
     <TextView
         android:id="@+id/medicMessageMessage"
@@ -127,6 +131,17 @@
         app:backgroundTint="#cc0000"
         app:layout_constraintStart_toEndOf="@+id/medicMessageAccept"
         app:layout_constraintTop_toBottomOf="@+id/medicMessageMessage" />
+
+    <ProgressBar
+        android:id="@+id/medicMessageProgressBar"
+        android:visibility="gone"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/medicMessageAccept" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

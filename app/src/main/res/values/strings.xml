@@ -112,4 +112,19 @@
     <string name="medic_message_message">Message: </string>
     <string name="medic_message_accept">Accept this medic</string>
     <string name="medic_message_reject">Reject this medic</string>
+
+    <!--My Medics-->
+    <string name="my_medic_title"> My Medical Consults</string>
+    <string name="my_medic_id">Consult Id: </string>
+    <string name="my_medic_medic">Medic: </string>
+    <string name="my_medic_description">Description: </string>
+    <string name="my_medic_date">Date: </string>
+    <string name="my_medic_chat">Chat</string>
+
+    <!--User Chat-->
+    <string name="user_chat_id">Consult Id: </string>
+    <string name="user_chat_title">Title: </string>
+    <string name="user_chat_medic">Medic: </string>
+    <string name="user_chat_placeholder">Message</string>
+    <string name="user_chat_send">Send</string>
 </resources>

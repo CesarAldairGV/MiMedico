@@ -55,6 +55,8 @@ public class CheckPetitions extends AppCompatActivity {
 
     public void getAllItems(){
         firebaseDatabase.getReference("petitions")
+                .orderByChild("petitionAccepted")
+                .equalTo(false)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {

@@ -49,7 +49,12 @@ public class MyPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
             petitionTitle.setText(symptomsPetition.getTitle());
             petitionDescription.setText(symptomsPetition.getDescription());
             petitionDate.setText(symptomsPetition.getPetitionDate().toString());
-            petitionAccepted.setText(symptomsPetition.isPetitionAccepted() ? "Accepted" : "No Accepted");
+            //petitionAccepted.setText(symptomsPetition.isPetitionAccepted() ? "Accepted" : "No Accepted");
+
+            if(symptomsPetition.isPetitionAccepted()){
+                messagesButton.setVisibility(View.GONE);
+                deleteButton.setVisibility(View.GONE);
+            }
 
             deleteButton.setOnClickListener(v -> {
                 firebaseDatabase.getReference("petitions")

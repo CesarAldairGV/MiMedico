@@ -24,65 +24,46 @@
             android:paddingStart="5dp"
             android:paddingEnd="5dp">
 
-            <ImageView
-                android:id="@+id/petitionImage"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:visibility="gone"
-                app:srcCompat="@android:drawable/list_selector_background" />
-
-            <ProgressBar
-                android:id="@+id/petitionProgressBar"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="10dp"
-                android:visibility="gone"
-                app:srcCompat="@android:drawable/list_selector_background" />
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/petitionTitle"
+                    android:id="@+id/userConsultId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:text="Description"
+                    android:text="@string/my_medic_id"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />
 
                 <TextView
-                    android:id="@+id/petitionDescription"
+                    android:id="@+id/userConsultMedic"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:paddingBottom="15dp"
-                    android:text="Description"
+                    android:text="@string/my_medic_medic"
                     android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/petitionDate"
+                    android:id="@+id/userConsultPetitionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:text="Date"
+                    android:text="@string/my_medic_description"
                     android:textColor="#FFFFFF" />
 
                 <TextView
-                    android:id="@+id/petitionAccepted"
+                    android:id="@+id/userConsultDate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:text="Accepted"
+                    android:text="@string/my_medic_date"
                     android:textColor="#FFFFFF" />
 
             </LinearLayout>
@@ -96,16 +77,16 @@
             android:paddingEnd="5dp">
 
             <Button
-                android:id="@+id/petitionMessagesButton"
+                android:id="@+id/userConsultButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_bg"
                 android:fontFamily="@font/baloo"
-                android:text="@string/my_symptoms_messages"
+                android:text="@string/my_medic_chat"
                 app:backgroundTint="#3F60F1" />
 
-            <Button
+            <!--<Button
                 android:id="@+id/petitionDeleteButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -114,7 +95,7 @@
                 android:background="@drawable/round_bg"
                 android:fontFamily="@font/baloo"
                 android:text="@string/my_symptoms_delete"
-                app:backgroundTint="#cc0000" />
+                app:backgroundTint="#cc0000" />-->
 
         </LinearLayout>
     </LinearLayout>

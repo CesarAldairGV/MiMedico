@@ -11,7 +11,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiMedico">
-        <activity android:name=".MedicMessage"></activity>
+        <activity android:name=".MyMedics"></activity>
+        <activity android:name=".ChatUser" />
+
+        <service
+            android:name=".services.NotificationService"
+            android:enabled="true"
+            android:exported="true" />
+
+        <activity android:name=".MedicMessage" />
         <activity android:name=".MedicPetition" />
         <activity android:name=".CheckMedicPetitions" />
         <activity android:name=".MainAdmin" />

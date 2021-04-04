@@ -6,23 +6,41 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.mimedico.model.Consult;
+import com.example.mimedico.model.Message;
+import com.example.mimedico.model.SymptomsPetition;
 import com.example.mimedico.model.SymptomsPetitionMessage;
 import com.example.mimedico.model.User;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import android.view.View;
+import android.widget.Toast;
+
 import com.squareup.picasso.Picasso;
+
+import java.util.Date;
+import java.util.UUID;
 
 public class MedicMessage extends AppCompatActivity {
 
     private TextView name, institution, years, email, message;
     private Button accept, reject;
     private FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
+    private ProgressBar progressBar;
 
     private ImageView photoView, proofView;
+
+
+    private String petitionId;
+    private String messageId;
+    private User medic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +48,7 @@ public class MedicMessage extends AppCompatActivity {
         setContentView(R.layout.activity_medic_message);
 
         firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         photoView = findViewById(R.id.medicMessagePhotoView);
         proofView = findViewById(R.id.medicMessageProofView);
 
@@ -42,8 +61,10 @@ public class MedicMessage extends AppCompatActivity {
         accept = findViewById(R.id.medicMessageAccept);
         reject = findViewById(R.id.medicMessageReject);
 
-        String petitionId = getIntent().getStringExtra("petitionId");
-        String messageId = getIntent().getStringExtra("messageId");
+        petitionId = getIntent().getStringExtra("petitionId");
+        messageId = getIntent().getStringExtra("messageId");
+
+        progressBar = findViewById(R.id.medicMessageProgressBar);
 
         firebaseDatabase.getReference("petitions")
                 .child(petitionId)
@@ -53,7 +74,7 @@ public class MedicMessage extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         SymptomsPetitionMessage symptomsPetitionMessage = snapshot.getValue(SymptomsPetitionMessage.class);
-                        User medic = symptomsPetitionMessage.getMedic();
+                        medic = symptomsPetitionMessage.getMedic();
                         name.append(" " + medic.getFirstName() + " " + medic.getLastName());
                         institution.append(" " + medic.getInstitution());
                         email.append(" " + medic.getEmail());
@@ -61,6 +82,57 @@ public class MedicMessage extends AppCompatActivity {
                         message.setText(symptomsPetitionMessage.getMessage());
                         Picasso.get().load(medic.getMedicProofUrl()).fit().centerCrop().into(proofView);
                         Picasso.get().load(medic.getUserPhotoUrl()).fit().centerCrop().into(photoView);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });
+
+        accept.setOnClickListener(this::accept);
+    }
+
+    public void accept(View view){
+        progressBar.setVisibility(View.VISIBLE);
+        firebaseDatabase.getReference("users")
+                .orderByChild("email")
+                .equalTo(firebaseAuth.getCurrentUser().getEmail())
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        User user = snapshot.getChildren().iterator().next().getValue(User.class);
+                        firebaseDatabase.getReference("petitions")
+                                .orderByChild("id")
+                                .equalTo(petitionId)
+                                .addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                        SymptomsPetition symptomsPetition = snapshot.getChildren().iterator().next().getValue(SymptomsPetition.class);
+                                        symptomsPetition.setPetitionAccepted(true);
+                                        symptomsPetition.setMedic(medic);
+                                        firebaseDatabase.getReference("petitions")
+                                                .child(symptomsPetition.getId())
+                                                .setValue(symptomsPetition)
+                                                .addOnSuccessListener(command -> {
+                                                    Consult consult = Consult.builder()
+                                                            .id(UUID.randomUUID().toString())
+                                                            .date(new Date().toString())
+                                                            .medic(medic)
+                                                            .symptomsPetition(symptomsPetition)
+                                                            .user(user)
+                                                            .build();
+                                                    firebaseDatabase.getReference("consults")
+                                                            .child(consult.getId())
+                                                            .setValue(consult)
+                                                            .addOnSuccessListener(command2 -> {
+                                                                progressBar.setVisibility(View.GONE);
+                                                                Toast.makeText(getApplicationContext(), "Medic Accepted", Toast.LENGTH_LONG).show();
+                                                            });
+                                                });
+                                    }
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError error) {
+                                    }
+                                });
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

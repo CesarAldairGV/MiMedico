@@ -10,7 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.mimedico.services.NotificationService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -21,7 +23,9 @@ import java.util.Iterator;
 
 public class MainActivity extends AppCompatActivity {
 
+    private static Intent intentService;
 
+    private Button myMedics;
     private Button mainMyPetitions;
     private Button signupAsMedic;
     private TextView usernameText;
@@ -42,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         usernameText = findViewById(R.id.mainUser);
         emailText = findViewById(R.id.mainEmail);
+        myMedics = findViewById(R.id.mainMyMedicsButton);
 
         firebaseDatabase.getReference("users")
                 .orderByChild("email")
@@ -67,6 +72,21 @@ public class MainActivity extends AppCompatActivity {
 
         mainMyPetitions.setOnClickListener(this::openMyPetitions);
         signupAsMedic.setOnClickListener(this::openSignupAsMedic);
+        myMedics.setOnClickListener(this::openMyMedics);
+
+        //setUpNotificationService();
+    }
+
+    public void openMyMedics(View view){
+        startActivity(new Intent(this, MyMedics.class));
+    }
+
+    public void setUpNotificationService(){
+        if(intentService == null) {
+            Toast.makeText(this, "Setting Up Service",Toast.LENGTH_LONG).show();
+            intentService = new Intent(this, NotificationService.class);
+            startService(intentService);
+        }
     }
 
     public void openMyPetitions(View view){

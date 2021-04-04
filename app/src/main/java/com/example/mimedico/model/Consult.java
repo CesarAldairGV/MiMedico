@@ -9,14 +9,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class SymptomsPetition{
+public class Consult {
     private String id;
     private User user;
     private User medic;
-    private String title;
-    private String description;
-    private String petitionDate;
-    private String imageUri;
-    private boolean petitionAccepted;
-    private boolean image;
+    private SymptomsPetition symptomsPetition;
+    private String date;
 }

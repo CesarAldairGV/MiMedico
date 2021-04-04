@@ -35,7 +35,7 @@
         app:layout_constraintTop_toBottomOf="@+id/mainUser" />
 
     <Button
-        android:id="@+id/mainCheckPetitionsButton"
+        android:id="@+id/mainMyMedicsButton"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -66,7 +66,7 @@
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainCheckPetitionsButton" />
+        app:layout_constraintTop_toBottomOf="@+id/mainMyMedicsButton" />
 
     <Button
         android:id="@+id/mainNotificationsButton"
