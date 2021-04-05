@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MiMedico">
-        <activity android:name=".MyPatients"></activity>
+        <activity android:name=".ChatMedic"></activity>
+        <activity android:name=".MyPatients" />
         <activity android:name=".MyMedics" />
         <activity android:name=".ChatUser" />
 

@@ -7,10 +7,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.mimedico.adapters.ChatMedicAdapter;
 import com.example.mimedico.adapters.ChatUserAdapter;
 import com.example.mimedico.model.Consult;
 import com.example.mimedico.model.Message;
@@ -19,17 +21,16 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import android.view.View;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class ChatUser extends AppCompatActivity {
+public class ChatMedic extends AppCompatActivity {
 
     private FirebaseDatabase firebaseDatabase;
 
-    private TextView consult, title, medic;
+    private TextView consult, title, patient;
 
     private EditText messageField;
     private Button sendButton;
@@ -39,14 +40,14 @@ public class ChatUser extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chat_user);
+        setContentView(R.layout.activity_chat_medic);
 
-        consult = findViewById(R.id.chatUserText);
-        title = findViewById(R.id.chatUserTitle);
-        medic = findViewById(R.id.chatUserMedic);
+        consult = findViewById(R.id.chatMedicText);
+        title = findViewById(R.id.chatMedicTitle);
+        patient = findViewById(R.id.chatMedicUser);
 
-        messageField = findViewById(R.id.chatUserMessage);
-        sendButton = findViewById(R.id.chatUserButton);
+        messageField = findViewById(R.id.chatMedicMessage);
+        sendButton = findViewById(R.id.chatMedicButton);
 
         Intent intent = getIntent();
         consultId = intent.getStringExtra("consultId");
@@ -59,9 +60,9 @@ public class ChatUser extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Consult consult = snapshot.getValue(Consult.class);
-                        ChatUser.this.consult.append(" " + consult.getId());
+                        ChatMedic.this.consult.append(" " + consult.getId());
                         title.append(" " + consult.getSymptomsPetition().getTitle());
-                        medic.append(" " + consult.getMedic().getFirstName() + " " + consult.getMedic().getLastName());
+                        patient.append(" " + consult.getMedic().getFirstName() + " " + consult.getMedic().getLastName());
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -80,10 +81,10 @@ public class ChatUser extends AppCompatActivity {
                             Message message = iterator.next().getValue(Message.class);
                             messages.add(message);
                         }
-                        ChatUserAdapter chatUserAdapter = new ChatUserAdapter(messages, ChatUser.this);
-                        RecyclerView recyclerView = findViewById(R.id.chatUserList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(ChatUser.this));
-                        recyclerView.setAdapter(chatUserAdapter);
+                        ChatMedicAdapter chatMedicAdapter = new ChatMedicAdapter(messages, ChatMedic.this);
+                        RecyclerView recyclerView = findViewById(R.id.chatMedicList);
+                        recyclerView.setLayoutManager(new LinearLayoutManager(ChatMedic.this));
+                        recyclerView.setAdapter(chatMedicAdapter);
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -101,13 +102,13 @@ public class ChatUser extends AppCompatActivity {
         }
         Message message1 = Message.builder()
                 .message(message)
-                .role(Roles.USER.toString())
+                .role(Roles.MEDIC.toString())
                 .build();
         firebaseDatabase.getReference("consults")
                 .child(consultId)
                 .child("messages")
                 .push()
                 .setValue(message1)
-                .addOnSuccessListener(a->messageField.setText(""));
+                .addOnSuccessListener(a->messageField.setText(""));;
     }
 }

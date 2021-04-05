@@ -1,6 +1,7 @@
 package com.example.mimedico.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mimedico.ChatMedic;
 import com.example.mimedico.MyPatients;
 import com.example.mimedico.R;
 import com.example.mimedico.model.Consult;
@@ -39,7 +41,9 @@ public class MyPatientsAdapter extends RecyclerView.Adapter<MyPatientsAdapter.My
             date.append(" " + consult.getDate());
 
             openChat.setOnClickListener(v -> {
-
+                Intent intent = new Intent(context, ChatMedic.class);
+                intent.putExtra("consultId",consult.getId());
+                context.startActivity(intent);
             });
         }
     }

@@ -135,4 +135,7 @@
     <string name="my_patients_description">Description: </string>
     <string name="my_patients_date">Date: </string>
     <string name="my_patients_chat">Chat</string>
+
+    <!--Medic Chat-->
+    <string name="medic_chat_user">Patient: </string>
 </resources>
