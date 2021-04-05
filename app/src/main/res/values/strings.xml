@@ -127,4 +127,12 @@
     <string name="user_chat_medic">Medic: </string>
     <string name="user_chat_placeholder">Message</string>
     <string name="user_chat_send">Send</string>
+
+    <!--My Patients-->
+    <string name="my_patients_title"> My Patients</string>
+    <string name="my_patients_id">Id: </string>
+    <string name="my_patients_medic">Patient: </string>
+    <string name="my_patients_description">Description: </string>
+    <string name="my_patients_date">Date: </string>
+    <string name="my_patients_chat">Chat</string>
 </resources>

@@ -28,6 +28,7 @@ public class MainMedic extends AppCompatActivity {
     private TextView emailText;
 
     private Button checkPetitionsButton;
+    private Button myPatientsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +38,11 @@ public class MainMedic extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        usernameText = findViewById(R.id.adminUser);
-        emailText = findViewById(R.id.adminEmail);
+        usernameText = findViewById(R.id.medicUser);
+        emailText = findViewById(R.id.medicEmail);
 
-        checkPetitionsButton = findViewById(R.id.adminCheckMedicProofButton);
+        checkPetitionsButton = findViewById(R.id.medicCheckMedicProofButton);
+        myPatientsButton = findViewById(R.id.medicMyPatientsButton);
 
         firebaseDatabase.getReference("users").orderByChild("email").equalTo(firebaseAuth.getCurrentUser().getEmail()).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -61,6 +63,12 @@ public class MainMedic extends AppCompatActivity {
                 // ...
             }
         });
+
+        myPatientsButton.setOnClickListener(this::openMyPatients);
+    }
+
+    public void openMyPatients(View view){
+        startActivity(new Intent(this, MyPatients.class));
     }
 
     public void openCheckPetitions(View view){

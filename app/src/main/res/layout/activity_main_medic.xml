@@ -8,7 +8,7 @@
     tools:context=".MainMedic">
 
     <TextView
-        android:id="@+id/adminUser"
+        android:id="@+id/medicUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/baloo"
@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.233" />
 
     <TextView
-        android:id="@+id/adminEmail"
+        android:id="@+id/medicEmail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -31,10 +31,10 @@
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adminUser" />
+        app:layout_constraintTop_toBottomOf="@+id/medicUser" />
 
     <Button
-        android:id="@+id/adminCheckMedicProofButton"
+        android:id="@+id/medicCheckMedicProofButton"
         android:layout_width="0dp"
         android:layout_height="70dp"
         android:layout_marginStart="16dp"
@@ -49,7 +49,7 @@
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adminEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/medicEmail" />
 
     <Button
         android:id="@+id/medicMyPatientsButton"
@@ -66,7 +66,7 @@
         app:backgroundTint="#3F60F1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/adminCheckMedicProofButton" />
+        app:layout_constraintTop_toBottomOf="@+id/medicCheckMedicProofButton" />
 
     <Button
         android:id="@+id/medicNotificationsButton"
