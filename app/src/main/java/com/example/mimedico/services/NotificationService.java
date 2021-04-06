@@ -1,9 +1,11 @@
 package com.example.mimedico.services;
 
+import com.example.mimedico.ChatMedic;
 import com.example.mimedico.MedicMessage;
 import com.example.mimedico.model.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
 import android.os.Build;
@@ -16,6 +18,7 @@ import androidx.core.app.NotificationCompat;
 import androidx.core.app.NotificationManagerCompat;
 
 import com.example.mimedico.R;
+import com.example.mimedico.model.NotificationType;
 import com.google.firebase.FirebaseError;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.ChildEventListener;
@@ -46,6 +49,7 @@ public class NotificationService extends Service {
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         userId = intent.getStringExtra("userId");
+        NotificationManagerCompat notificationManager = NotificationManagerCompat.from(NotificationService.this);
         createNotificationChannel();
         firebaseDatabase.getReference("users")
                 .child(userId)
@@ -64,18 +68,31 @@ public class NotificationService extends Service {
                         databaseReference = firebaseDatabase.getReference("users")
                                 .child(userId)
                                 .child("notifications");
-                        ChildEventListener childEventListener = new ChildEventListener() {
+                        childEventListener = new ChildEventListener() {
                             @Override
                             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                                 if(flag){
+                                    Intent intent1;
+                                    PendingIntent pendingIntent;
                                     Notification notification = snapshot.getValue(Notification.class);
+                                    if(notification.getType().equals(NotificationType.USER_ACCEPT.getType())){
+                                        intent1 = new Intent(NotificationService.this, ChatMedic.class);
+                                        intent1.putExtra("consultId", notification.getOtherId());
+                                        pendingIntent = PendingIntent.getActivity(NotificationService.this, 0, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
+                                    }else{
+                                        intent1 = new Intent(NotificationService.this, MedicMessage.class);
+                                        intent1.putExtra("petitionId", notification.getOtherId());
+                                        intent1.putExtra("messageId", notification.getSecondId());
+                                        pendingIntent = PendingIntent.getActivity(NotificationService.this, 0, intent1, PendingIntent.FLAG_CANCEL_CURRENT);
+                                    }
                                     NotificationCompat.Builder builder = new NotificationCompat.Builder(NotificationService.this, "CHANNEL_ID")
                                             .setSmallIcon(R.drawable.logo3)
                                             .setContentTitle(notification.getTitle())
                                             .setContentText(notification.getMessage())
+                                            .setContentIntent(pendingIntent)
+                                            .setAutoCancel(true)
                                             .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-                                    NotificationManagerCompat notificationManager = NotificationManagerCompat.from(NotificationService.this);
                                     notificationManager.notify(id++, builder.build());
                                     return;
                                 }

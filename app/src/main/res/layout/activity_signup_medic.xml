@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,134 +8,143 @@
     android:background="#A6C9F5"
     tools:context=".SignupMedic">
 
-    <TextView
-        android:id="@+id/signupMedicText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/baloo"
-        android:text="@string/signup_medic"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <EditText
-        android:id="@+id/signupMedicSchool"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:padding="10dp"
-        android:background="@drawable/round_bg"
-        android:inputType="text"
-        android:hint="@string/signup_medic_school"
-        app:backgroundTint="#70ABD3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicText" />
+        android:layout_height="match_parent"
+        android:background="#A6C9F5">
 
-    <EditText
-        android:id="@+id/signupMedicAgeOfExperience"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginTop="20dp"
-        android:padding="10dp"
-        android:background="@drawable/round_bg"
-        android:inputType="number"
-        android:hint="@string/signup_medic_years"
-        app:backgroundTint="#70ABD3"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicSchool" />
+        <TextView
+            android:id="@+id/signupMedicText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/baloo"
+            android:text="@string/signup_medic"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.05" />
 
-    <TextView
-        android:id="@+id/signupMedicProofText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/signup_medic_image"
-        android:layout_marginStart="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicAgeOfExperience" />
+        <EditText
+            android:id="@+id/signupMedicSchool"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/round_bg"
+            android:hint="@string/signup_medic_school"
+            android:inputType="text"
+            android:padding="10dp"
+            app:backgroundTint="#70ABD3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicText" />
 
-    <Button
-        android:id="@+id/signupMedicSelectProof"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:background="@drawable/round_bg"
-        android:text="@string/signup_medic_select"
-        android:layout_marginStart="20dp"
-        app:backgroundTint="#3F60F1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText" />
+        <EditText
+            android:id="@+id/signupMedicAgeOfExperience"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/round_bg"
+            android:hint="@string/signup_medic_years"
+            android:inputType="number"
+            android:padding="10dp"
+            app:backgroundTint="#70ABD3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicSchool" />
 
-    <ImageView
-        android:id="@+id/signupMedicProofView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintStart_toEndOf="@+id/signupMedicSelectProof"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText"
-        app:srcCompat="?attr/selectableItemBackground" />
+        <TextView
+            android:id="@+id/signupMedicProofText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/signup_medic_image"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicAgeOfExperience" />
 
-    <TextView
-        android:id="@+id/signupMedicFaceText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/signup_medic_photo"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicProofView" />
+        <Button
+            android:id="@+id/signupMedicSelectProof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_bg"
+            android:text="@string/signup_medic_select"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText" />
 
-    <Button
-        android:id="@+id/signupMedicSelectPhoto"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:background="@drawable/round_bg"
-        android:text="@string/signup_medic_select"
-        app:backgroundTint="#3F60F1"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText" />
+        <ImageView
+            android:id="@+id/signupMedicProofView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/signupMedicSelectProof"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicProofText"
+            app:srcCompat="?attr/selectableItemBackground" />
 
-    <ImageView
-        android:id="@+id/signupMedicPhotoView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="100dp"
-        app:layout_constraintStart_toEndOf="@+id/signupMedicSelectPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText"
-        app:srcCompat="?attr/selectableItemBackground" />
+        <TextView
+            android:id="@+id/signupMedicFaceText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/signup_medic_photo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicProofView" />
 
-    <Button
-        android:id="@+id/signupMedicSendButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:text="@string/signup_medic_send"
-        android:background="@drawable/round_bg"
-        app:backgroundTint="#3F60F1"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicPhotoView" />
+        <Button
+            android:id="@+id/signupMedicSelectPhoto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_bg"
+            android:text="@string/signup_medic_select"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText" />
 
-    <ProgressBar
-        android:id="@+id/signupMedicProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signupMedicSendButton" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/signupMedicPhotoView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/signupMedicSelectPhoto"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicFaceText"
+            app:srcCompat="?attr/selectableItemBackground" />
+
+        <Button
+            android:id="@+id/signupMedicSendButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/round_bg"
+            android:text="@string/signup_medic_send"
+            android:visibility="gone"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicPhotoView" />
+
+        <ProgressBar
+            android:id="@+id/signupMedicProgressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/signupMedicSendButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

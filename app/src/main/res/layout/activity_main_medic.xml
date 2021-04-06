@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#A6C9F5"
     tools:context=".MainMedic">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#A6C9F5">
 
     <TextView
         android:id="@+id/medicProfile"
@@ -103,6 +109,7 @@
         android:fontFamily="@font/baloo"
         android:text="@string/main_medic_notifications"
         android:textSize="20dp"
+        android:visibility="gone"
         app:backgroundTint="#3F60F1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -113,7 +120,7 @@
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
-        android:layout_height="270dp"
+        android:layout_height="230dp"
         android:scaleType="centerCrop"
         android:translationZ="-1dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -122,3 +129,5 @@
         app:srcCompat="@drawable/back3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mimedico.model.Notification;
+import com.example.mimedico.model.NotificationType;
 import com.example.mimedico.model.SymptomsPetition;
 import com.example.mimedico.model.SymptomsPetitionMessage;
 import com.example.mimedico.model.User;
@@ -105,6 +106,8 @@ public class CheckOnePetition extends AppCompatActivity {
                                             + " sended you a message for the petition: "
                                             + symptomsPetition.getTitle())
                                             .otherId(symptomsId)
+                                            .secondId(symptomsPetitionsResponse.getId())
+                                            .type(NotificationType.MEDIC_MESSAGE.getType())
                                             .build();
                                     firebaseDatabase.getReference("users")
                                             .child(symptomsPetition.getUser().getId())

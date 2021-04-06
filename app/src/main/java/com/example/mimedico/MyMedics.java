@@ -48,7 +48,10 @@ public class MyMedics extends AppCompatActivity {
                         }
                         MyMedicsAdapter myMedicsAdapter = new MyMedicsAdapter(consults, MyMedics.this);
                         RecyclerView recyclerView = findViewById(R.id.myMedicsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(MyMedics.this));
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MyMedics.this);
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
+                        recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(myMedicsAdapter);
                     }
                     @Override

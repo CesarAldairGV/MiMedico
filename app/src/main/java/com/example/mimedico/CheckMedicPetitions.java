@@ -44,7 +44,10 @@ public class CheckMedicPetitions extends AppCompatActivity {
                         }
                         MedicPetitionsAdapter medicPetitionsAdapter = new MedicPetitionsAdapter(medics, CheckMedicPetitions.this);
                         RecyclerView recyclerView = findViewById(R.id.checkMedicPetitionsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(CheckMedicPetitions.this));
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(CheckMedicPetitions.this);
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
+                        recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(medicPetitionsAdapter);
                     }
                     @Override

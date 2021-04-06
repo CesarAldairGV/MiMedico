@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.example.mimedico.model.Consult;
 import com.example.mimedico.model.Message;
 import com.example.mimedico.model.Notification;
+import com.example.mimedico.model.NotificationType;
 import com.example.mimedico.model.SymptomsPetition;
 import com.example.mimedico.model.SymptomsPetitionMessage;
 import com.example.mimedico.model.User;
@@ -139,6 +140,7 @@ public class MedicMessage extends AppCompatActivity {
                                                                                 "accepted your consult for the petition: "
                                                                                 +symptomsPetition.getTitle())
                                                                         .otherId(consult.getId())
+                                                                        .type(NotificationType.USER_ACCEPT.getType())
                                                                         .build();
                                                                 firebaseDatabase.getReference("users")
                                                                         .child(medic.getId())

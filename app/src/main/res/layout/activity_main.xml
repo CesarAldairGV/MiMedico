@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,141 +8,149 @@
     android:background="#A6C9F5"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/mainData"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main"
-        android:textSize="24sp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#A6C9F5">
 
-    <TextView
-        android:id="@+id/mainName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_name"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainData" />
+        <TextView
+            android:id="@+id/mainData"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main"
+            android:textSize="24sp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/mainUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_user"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/mainName" />
+        <TextView
+            android:id="@+id/mainName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_name"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainData" />
 
-    <TextView
-        android:id="@+id/mainEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_email"
-        android:textSize="18sp"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainUser" />
+        <TextView
+            android:id="@+id/mainUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_user"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/mainName" />
 
-    <Button
-        android:id="@+id/mainMyMedicsButton"
-        android:layout_width="0dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/round_bg"
-        android:drawableLeft="@drawable/doctor50px"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_medics"
-        android:textSize="20dp"
-        app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toTopOf="@+id/mainMyPetitionsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainEmail" />
+        <TextView
+            android:id="@+id/mainEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_email"
+            android:textSize="18sp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainUser" />
 
-    <Button
-        android:id="@+id/mainMyPetitionsButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/round_bg"
-        android:drawableLeft="@drawable/cross50px"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_symptoms"
-        android:textSize="20dp"
-        app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toTopOf="@+id/mainNotificationsButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainMyMedicsButton" />
+        <Button
+            android:id="@+id/mainMyMedicsButton"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/doctor50px"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_medics"
+            android:textSize="20dp"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintBottom_toTopOf="@+id/mainMyPetitionsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainEmail" />
 
-    <Button
-        android:id="@+id/mainNotificationsButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/round_bg"
-        android:drawableLeft="@drawable/bell50px"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_notifications"
-        android:textSize="20dp"
-        app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toTopOf="@+id/mainMedicFormButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainMyPetitionsButton" />
+        <Button
+            android:id="@+id/mainMyPetitionsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/cross50px"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_symptoms"
+            android:textSize="20dp"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintBottom_toTopOf="@+id/mainMedicFormButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainMyMedicsButton" />
 
-    <Button
-        android:id="@+id/mainMedicFormButton"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="30dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/round_bg"
-        android:drawableLeft="@drawable/signup50px"
-        android:fontFamily="@font/baloo"
-        android:text="@string/main_medic"
-        android:textSize="20dp"
-        app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainNotificationsButton" />
+        <Button
+            android:id="@+id/mainNotificationsButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/bell50px"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_notifications"
+            android:textSize="20dp"
+            android:visibility="gone"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainMedicFormButton" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="270dp"
-        android:scaleType="centerCrop"
-        android:translationZ="-1dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/back3" />
+        <Button
+            android:id="@+id/mainMedicFormButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/round_bg"
+            android:drawableLeft="@drawable/signup50px"
+            android:fontFamily="@font/baloo"
+            android:text="@string/main_medic"
+            android:textSize="20dp"
+            app:backgroundTint="#3F60F1"
+            app:layout_constraintBottom_toTopOf="@+id/mainNotificationsButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/mainMyPetitionsButton" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="250dp"
+            android:scaleType="centerCrop"
+            android:translationZ="-1dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back3" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

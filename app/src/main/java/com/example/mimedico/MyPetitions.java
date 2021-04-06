@@ -80,7 +80,10 @@ public class MyPetitions extends AppCompatActivity {
                         }
                         MyPetitionsAdapter myPetitionsAdapter = new MyPetitionsAdapter(symptomsPetitions, MyPetitions.this);
                         RecyclerView recyclerView = findViewById(R.id.myPetitionsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(MyPetitions.this));
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MyPetitions.this);
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
+                        recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(myPetitionsAdapter);
                     }
 
@@ -108,7 +111,10 @@ public class MyPetitions extends AppCompatActivity {
                         }
                         MyPetitionsAdapter myPetitionsAdapter = new MyPetitionsAdapter(symptomsPetitions, MyPetitions.this);
                         RecyclerView recyclerView = findViewById(R.id.myPetitionsList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(MyPetitions.this));
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(MyPetitions.this);
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
+                        recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(myPetitionsAdapter);
                     }
 

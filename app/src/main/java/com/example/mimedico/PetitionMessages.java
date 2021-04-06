@@ -52,7 +52,10 @@ public class PetitionMessages extends AppCompatActivity {
                         }
                         PetitionMessagesAdapter petitionMessagesAdapter = new PetitionMessagesAdapter(symptomsPetitionMessageList, PetitionMessages.this);
                         RecyclerView recyclerView = findViewById(R.id.petitionMessagesList);
-                        recyclerView.setLayoutManager(new LinearLayoutManager(PetitionMessages.this));
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(PetitionMessages.this);
+                        linearLayoutManager.setReverseLayout(true);
+                        linearLayoutManager.setStackFromEnd(true);
+                        recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(petitionMessagesAdapter);
                     }
 
