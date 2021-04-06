@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.mimedico.model.Consult;
 import com.example.mimedico.model.Message;
+import com.example.mimedico.model.Notification;
 import com.example.mimedico.model.SymptomsPetition;
 import com.example.mimedico.model.SymptomsPetitionMessage;
 import com.example.mimedico.model.User;
@@ -115,7 +116,7 @@ public class MedicMessage extends AppCompatActivity {
                                                 .setValue(symptomsPetition)
                                                 .addOnSuccessListener(command -> {
                                                     Consult consult = Consult.builder()
-                                                            .id(UUID.randomUUID().toString())
+                                                            .id(firebaseDatabase.getReference("consults").push().getKey())
                                                             .date(new Date().toString())
                                                             .medic(medic)
                                                             .symptomsPetition(symptomsPetition)
@@ -127,6 +128,23 @@ public class MedicMessage extends AppCompatActivity {
                                                             .addOnSuccessListener(command2 -> {
                                                                 progressBar.setVisibility(View.GONE);
                                                                 Toast.makeText(getApplicationContext(), "Medic Accepted", Toast.LENGTH_LONG).show();
+                                                                Notification notification = Notification.builder()
+                                                                        .id(firebaseDatabase.getReference("users")
+                                                                                .child(symptomsPetition.getUser().getId())
+                                                                                .child("notifications")
+                                                                                .push().getKey())
+                                                                        .title("A user accepted your consult")
+                                                                        .message(symptomsPetition.getUser().getFirstName() + " "
+                                                                                + symptomsPetition.getUser().getLastName() +
+                                                                                "accepted your consult for the petition: "
+                                                                                +symptomsPetition.getTitle())
+                                                                        .otherId(consult.getId())
+                                                                        .build();
+                                                                firebaseDatabase.getReference("users")
+                                                                        .child(medic.getId())
+                                                                        .child("notifications")
+                                                                        .child(notification.getId())
+                                                                        .setValue(notification);
                                                                 Intent intent = new Intent(MedicMessage.this, ChatUser.class);
                                                                 intent.putExtra("consultId",consult.getId());
                                                                 MedicMessage.this.startActivity(intent);

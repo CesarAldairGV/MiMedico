@@ -142,4 +142,12 @@
 
     <!--Medic Chat-->
     <string name="medic_chat_user">Patient: </string>
+
+    <!--Check One Petition-->
+    <string name="check_one_title">Titulo: </string>
+    <string name="check_one_name">Nombre: </string>
+    <string name="check_one_username">Username: </string>
+    <string name="check_one_date">Fecha de peticion: </string>
+    <string name="check_one_email">Email: </string>
+    <string name="check_one_description">Descripcion: </string>
 </resources>

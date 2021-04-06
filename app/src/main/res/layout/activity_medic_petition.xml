@@ -93,6 +93,7 @@
                 android:id="@+id/medicPetitionPhotos"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:fontFamily="@font/baloo"
                 android:text="@string/medic_petition_photos"
                 android:textSize="24sp"
@@ -161,6 +162,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
                 android:background="@drawable/round_bg"
                 android:fontFamily="@font/baloo"
                 android:text="@string/medic_petition_accept"
@@ -170,6 +172,17 @@
                 app:layout_constraintStart_toEndOf="@+id/medicPetitionReject"
                 app:layout_constraintTop_toBottomOf="@+id/proofView" />
 
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="280dp"
+                android:scaleType="centerCrop"
+                android:translationZ="-1dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/back3" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>
 

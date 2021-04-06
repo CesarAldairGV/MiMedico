@@ -26,6 +26,7 @@ public class MainAdmin extends AppCompatActivity {
 
     private TextView adminUser;
     private TextView adminEmail;
+    private TextView adminName;
 
     private Button checkMedicalProofButton;
     @Override
@@ -36,7 +37,8 @@ public class MainAdmin extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
 
-        adminUser = findViewById(R.id.adminUser);
+        adminUser = findViewById(R.id.adminUsername);
+        adminName = findViewById(R.id.adminName);
         adminEmail = findViewById(R.id.adminEmail);
 
         checkMedicalProofButton = findViewById(R.id.adminCheckMedicProofButton);
@@ -60,6 +62,7 @@ public class MainAdmin extends AppCompatActivity {
                         User user = snapshot.getChildren().iterator().next().getValue(User.class);
                         adminUser.append(" " + user.getUserName());
                         adminEmail.append(" " + user.getEmail());
+                        adminName.append(" " + user.getFirstName() + " " + user.getLastName());
                     }
 
                     @Override

@@ -55,7 +55,9 @@ public class CheckPetitionsAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             });
             if(symptomsPetition.isImage()){
                 progressBar.setVisibility(View.VISIBLE);
-                Picasso.get().load(symptomsPetition.getImageUri()).into(imageView, new Callback() {
+                progressBar.setVisibility(View.GONE);
+                imageView.setVisibility(View.VISIBLE);
+                Picasso.get().load(symptomsPetition.getImageUri()).fit().centerCrop().into(imageView, new Callback() {
                     @Override
                     public void onSuccess() {
                         progressBar.setVisibility(View.GONE);

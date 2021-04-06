@@ -2,7 +2,10 @@ package com.example.mimedico;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -36,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
+    private User user;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,11 +64,12 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                 while(iterator.hasNext()){
-                    User user = iterator.next().getValue(User.class);
+                    user = iterator.next().getValue(User.class);
                     nameText.append(" " + user.getFirstName() + " " + user.getLastName());
                     emailText.append(" " + user.getEmail());
                     usernameText.append(" " + user.getUserName());
                 }
+                setUpNotificationService();
             }
 
             @Override
@@ -75,9 +81,8 @@ public class MainActivity extends AppCompatActivity {
         mainMyPetitions.setOnClickListener(this::openMyPetitions);
         signupAsMedic.setOnClickListener(this::openSignupAsMedic);
         myMedics.setOnClickListener(this::openMyMedics);
-
-        //setUpNotificationService();
     }
+
 
     public void openMyMedics(View view){
         startActivity(new Intent(this, MyMedics.class));
@@ -85,8 +90,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void setUpNotificationService(){
         if(intentService == null) {
-            Toast.makeText(this, "Setting Up Service",Toast.LENGTH_LONG).show();
             intentService = new Intent(this, NotificationService.class);
+            intentService.putExtra("userId", user.getId());
             startService(intentService);
         }
     }
@@ -100,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void logout(){
+        stopService(intentService);
         firebaseAuth.signOut();
         startActivity(new Intent(this, Login.class));
     }

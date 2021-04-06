@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.mimedico.model.User;
+import com.example.mimedico.services.NotificationService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -26,9 +28,13 @@ public class MainMedic extends AppCompatActivity {
 
     private TextView usernameText;
     private TextView emailText;
+    private TextView nameText;
 
     private Button checkPetitionsButton;
     private Button myPatientsButton;
+
+    private Intent intentService;
+    private User medic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +46,7 @@ public class MainMedic extends AppCompatActivity {
 
         usernameText = findViewById(R.id.medicUser);
         emailText = findViewById(R.id.medicEmail);
+        nameText = findViewById(R.id.medicName);
 
         checkPetitionsButton = findViewById(R.id.medicCheckMedicProofButton);
         myPatientsButton = findViewById(R.id.medicMyPatientsButton);
@@ -50,12 +57,12 @@ public class MainMedic extends AppCompatActivity {
 
                 Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                 while(iterator.hasNext()){
-                    DataSnapshot dataSnapshot1 = iterator.next();
-                    String email = dataSnapshot1.child("email").getValue().toString();
-                    String username = dataSnapshot1.child("userName").getValue().toString();
-                    emailText.append(email);
-                    usernameText.append(username);
+                    medic = iterator.next().getValue(User.class);
+                    nameText.append(" " + medic.getFirstName() + " " + medic.getLastName());
+                    emailText.append(" " + medic.getEmail());
+                    usernameText.append(" " + medic.getUserName());
                 }
+                setUpNotificationService();
             }
 
             @Override
@@ -65,6 +72,14 @@ public class MainMedic extends AppCompatActivity {
         });
 
         myPatientsButton.setOnClickListener(this::openMyPatients);
+    }
+
+    public void setUpNotificationService(){
+        if(intentService == null) {
+            intentService = new Intent(this, NotificationService.class);
+            intentService.putExtra("userId", medic.getId());
+            startService(intentService);
+        }
     }
 
     public void openMyPatients(View view){

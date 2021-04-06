@@ -12,6 +12,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mimedico.model.Notification;
 import com.example.mimedico.model.SymptomsPetition;
 import com.example.mimedico.model.SymptomsPetitionMessage;
 import com.example.mimedico.model.User;
@@ -30,7 +31,7 @@ public class CheckOnePetition extends AppCompatActivity {
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
 
-    private TextView titleText, usernameText, firstnameText, lastnameText, emailText, dateText, descriptionText;
+    private TextView titleText, usernameText, nameText, lastnameText, emailText, dateText, descriptionText;
     private ImageView imageView;
     private Button sendButton;
     private EditText messageField;
@@ -48,8 +49,8 @@ public class CheckOnePetition extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
 
         usernameText = findViewById(R.id.medicPetitionUsername);
-        firstnameText = findViewById(R.id.medicPetitionFirstname);
-        lastnameText = findViewById(R.id.medicPetitionLastname);
+        nameText = findViewById(R.id.medicPetitionName);
+        //lastnameText = findViewById(R.id.medicPetitionLastname);
         emailText = findViewById(R.id.medicPetitionEmail);
         dateText = findViewById(R.id.medicPetitionDate);
         titleText = findViewById(R.id.checkOnePetitionTitle);
@@ -81,7 +82,7 @@ public class CheckOnePetition extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         User medic = snapshot.getChildren().iterator().next().getValue(User.class);
                         SymptomsPetitionMessage symptomsPetitionsResponse = SymptomsPetitionMessage.builder()
-                                .id(UUID.randomUUID().toString())
+                                .id(firebaseDatabase.getReference("petitions").child(symptomsId).child("messages").push().getKey())
                                 .medic(medic)
                                 .date(new Date().toString())
                                 .message(message)
@@ -91,8 +92,26 @@ public class CheckOnePetition extends AppCompatActivity {
                                 .child("messages")
                                 .child(symptomsPetitionsResponse.getId())
                                 .setValue(symptomsPetitionsResponse)
-                                .addOnSuccessListener(command ->
-                                        Toast.makeText(getApplicationContext(), "Message Sent correcly!",Toast.LENGTH_LONG).show())
+                                .addOnSuccessListener(command ->{
+                                    Toast.makeText(getApplicationContext(), "Message Sent correcly!",Toast.LENGTH_LONG).show();
+                                    Notification notification = Notification.builder()
+                                            .id(firebaseDatabase.getReference("users")
+                                                    .child(symptomsPetition.getUser().getId())
+                                                    .child("notifications")
+                                                    .push().getKey())
+                                            .title("You received a petition message")
+                                            .message(symptomsPetitionsResponse.getMedic().getFirstName() + " "
+                                                    + symptomsPetitionsResponse.getMedic().getLastName()
+                                            + " sended you a message for the petition: "
+                                            + symptomsPetition.getTitle())
+                                            .otherId(symptomsId)
+                                            .build();
+                                    firebaseDatabase.getReference("users")
+                                            .child(symptomsPetition.getUser().getId())
+                                            .child("notifications")
+                                            .child(notification.getId())
+                                            .setValue(notification);
+                                })
                                 .addOnFailureListener(command ->
                                         Toast.makeText(getApplicationContext(), "Cannot send message!",Toast.LENGTH_LONG).show())
                                 .addOnCompleteListener(command ->
@@ -112,16 +131,16 @@ public class CheckOnePetition extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         symptomsPetition = snapshot.getChildren().iterator().next().getValue(SymptomsPetition.class);
-                        usernameText.setText(symptomsPetition.getUser().getUserName());
-                        firstnameText.setText(symptomsPetition.getUser().getFirstName());
-                        lastnameText.setText(symptomsPetition.getUser().getLastName());
-                        emailText.setText(symptomsPetition.getUser().getEmail());
-                        dateText.setText(symptomsPetition.getPetitionDate());
-                        titleText.setText(symptomsPetition.getTitle());
-                        descriptionText.setText(symptomsPetition.getDescription());
+                        usernameText.append(" " + symptomsPetition.getUser().getUserName());
+                        nameText.append(" " + symptomsPetition.getUser().getFirstName() + " " + symptomsPetition.getUser().getLastName());
+                        //lastnameText.setText(symptomsPetition.getUser().getLastName());
+                        emailText.append(" " + symptomsPetition.getUser().getEmail());
+                        dateText.append(" " + symptomsPetition.getPetitionDate());
+                        titleText.append(" " + symptomsPetition.getTitle());
+                        descriptionText.append(" " + symptomsPetition.getDescription());
                         if(symptomsPetition.isImage()){
                             imageView.setVisibility(View.VISIBLE);
-                            Picasso.get().load(symptomsPetition.getImageUri()).into(imageView);
+                            Picasso.get().load(symptomsPetition.getImageUri()).fit().centerCrop().into(imageView);
                         }
                     }
 

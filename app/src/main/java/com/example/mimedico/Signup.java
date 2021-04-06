@@ -75,7 +75,7 @@ public class Signup extends AppCompatActivity {
         if (!validateFields(firstname, lastname, username, email, birthdate, password)) return;
         progressBar.setVisibility(View.VISIBLE);
         User user = User.builder()
-                .id(UUID.randomUUID().toString())
+                .id(firebaseDatabase.getReference("users").push().getKey())
                 .firstName(firstname)
                 .lastName(lastname)
                 .userName(username)

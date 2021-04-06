@@ -119,7 +119,7 @@ public class SendPetitions extends AppCompatActivity {
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         final User user = snapshot.getChildren().iterator().next().getValue(User.class);
                         SymptomsPetition symptomsPetition = SymptomsPetition.builder()
-                                .id(UUID.randomUUID().toString())
+                                .id(firebaseDatabase.getReference("petitions").push().getKey())
                                 .user(user)
                                 .description(symptoms)
                                 .petitionDate(new Date().toString())
@@ -142,8 +142,7 @@ public class SendPetitions extends AppCompatActivity {
                                                     .getDownloadUrl()
                                                     .addOnSuccessListener(uri1 -> {
                                                         symptomsPetition.setImageUri(uri1.toString());
-                                                        firebaseDatabase.getReference()
-                                                                .child("petitions")
+                                                        firebaseDatabase.getReference("petitions")
                                                                 .child(symptomsPetition.getId())
                                                                 .setValue(symptomsPetition)
                                                                 .addOnSuccessListener(command2 -> {

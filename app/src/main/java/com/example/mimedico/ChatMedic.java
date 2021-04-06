@@ -1,13 +1,16 @@
 package com.example.mimedico;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import com.example.mimedico.adapters.ChatUserAdapter;
 import com.example.mimedico.model.Consult;
 import com.example.mimedico.model.Message;
 import com.example.mimedico.model.Roles;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,6 +41,10 @@ public class ChatMedic extends AppCompatActivity {
 
     private String consultId;
 
+    private ChatMedicAdapter chatMedicAdapter;
+    private RecyclerView recyclerView;
+    private List<Message> messages = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +62,11 @@ public class ChatMedic extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
 
+        chatMedicAdapter = new ChatMedicAdapter(messages, ChatMedic.this);
+        recyclerView = findViewById(R.id.chatMedicList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(ChatMedic.this));
+        recyclerView.setAdapter(chatMedicAdapter);
+
         firebaseDatabase.getReference("consults")
                 .child(consultId)
                 .addListenerForSingleValueEvent(new ValueEventListener() {
@@ -69,7 +82,7 @@ public class ChatMedic extends AppCompatActivity {
                     }
                 });
 
-        firebaseDatabase.getReference("consults")
+        /*firebaseDatabase.getReference("consults")
                 .child(consultId)
                 .child("messages")
                 .addValueEventListener(new ValueEventListener() {
@@ -85,6 +98,31 @@ public class ChatMedic extends AppCompatActivity {
                         RecyclerView recyclerView = findViewById(R.id.chatMedicList);
                         recyclerView.setLayoutManager(new LinearLayoutManager(ChatMedic.this));
                         recyclerView.setAdapter(chatMedicAdapter);
+                    }
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                    }
+                });*/
+
+        firebaseDatabase.getReference("consults")
+                .child(consultId)
+                .child("messages")
+                .addChildEventListener(new ChildEventListener() {
+                    @Override
+                    public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                        Message message = snapshot.getValue(Message.class);
+                        messages.add(message);
+                        chatMedicAdapter.notifyItemChanged(messages.size() - 1);
+                        recyclerView.scrollToPosition(messages.size() - 1);
+                    }
+                    @Override
+                    public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+                    }
+                    @Override
+                    public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+                    }
+                    @Override
+                    public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {
@@ -109,6 +147,20 @@ public class ChatMedic extends AppCompatActivity {
                 .child("messages")
                 .push()
                 .setValue(message1)
-                .addOnSuccessListener(a->messageField.setText(""));;
+                .addOnSuccessListener(a->{
+                    messageField.setText("");
+                    hideKeyboard(this);
+                });
+    }
+
+    public static void hideKeyboard(Activity activity) {
+        InputMethodManager imm = (InputMethodManager) activity.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        //Find the currently focused view, so we can grab the correct window token from it.
+        View view = activity.getCurrentFocus();
+        //If no view currently has focus, create a new one, just so we can grab a window token from it
+        if (view == null) {
+            view = new View(activity);
+        }
+        imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

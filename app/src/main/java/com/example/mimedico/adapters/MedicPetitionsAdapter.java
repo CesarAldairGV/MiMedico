@@ -55,7 +55,11 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
 
             proofBar.setVisibility(View.VISIBLE);
             photoBar.setVisibility(View.VISIBLE);
-            Picasso.get().load(medic.getMedicProofUrl()).into(proofView, new Callback() {
+            proofView.setVisibility(View.VISIBLE);
+            proofBar.setVisibility(View.GONE);
+            photoView.setVisibility(View.VISIBLE);
+            photoBar.setVisibility(View.GONE);
+            Picasso.get().load(medic.getMedicProofUrl()).fit().centerCrop().into(proofView, new Callback() {
                 @Override
                 public void onSuccess() {
                     proofView.setVisibility(View.VISIBLE);
@@ -65,7 +69,7 @@ public class MedicPetitionsAdapter extends RecyclerView.Adapter<MedicPetitionsAd
                 public void onError(Exception e) {
                 }
             });
-            Picasso.get().load(medic.getUserPhotoUrl()).into(photoView, new Callback() {
+            Picasso.get().load(medic.getUserPhotoUrl()).fit().centerCrop().into(photoView, new Callback() {
                 @Override
                 public void onSuccess() {
                     photoView.setVisibility(View.VISIBLE);
