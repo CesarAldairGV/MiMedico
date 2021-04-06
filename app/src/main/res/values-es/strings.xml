@@ -2,6 +2,7 @@
 <resources>
     <!--Login-->
     <string name="app_name">MiMedico</string>
+    <string name="login_app">&#160;&#160;MiMedico</string>
     <string name="login_title">Iniciar Sesion</string>
     <string name="login_email">Email</string>
     <string name="login_password">Contraseña</string>
@@ -36,6 +37,8 @@
     <string name="spanish">Español</string>
 
     <!--Main-->
+    <string name="main">Mi Perfil</string>
+    <string name="main_name">Nombre:</string>
     <string name="main_user">Usuario: </string>
     <string name="main_email">Email: </string>
     <string name="main_birthdate">Fecha de Nacimiento: </string>

@@ -3,6 +3,7 @@ package com.example.mimedico;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -49,7 +50,7 @@ public class MedicMessage extends AppCompatActivity {
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
-        photoView = findViewById(R.id.medicMessagePhotoView);
+        photoView = findViewById(R.id.medicMessagePhotoViewReal);
         proofView = findViewById(R.id.medicMessageProofView);
 
         name = findViewById(R.id.medicMessageName);
@@ -59,7 +60,7 @@ public class MedicMessage extends AppCompatActivity {
         message = findViewById(R.id.medicMessageMessage);
 
         accept = findViewById(R.id.medicMessageAccept);
-        reject = findViewById(R.id.medicMessageReject);
+        //reject = findViewById(R.id.medicMessageReject);
 
         petitionId = getIntent().getStringExtra("petitionId");
         messageId = getIntent().getStringExtra("messageId");
@@ -126,6 +127,9 @@ public class MedicMessage extends AppCompatActivity {
                                                             .addOnSuccessListener(command2 -> {
                                                                 progressBar.setVisibility(View.GONE);
                                                                 Toast.makeText(getApplicationContext(), "Medic Accepted", Toast.LENGTH_LONG).show();
+                                                                Intent intent = new Intent(MedicMessage.this, ChatUser.class);
+                                                                intent.putExtra("consultId",consult.getId());
+                                                                MedicMessage.this.startActivity(intent);
                                                             });
                                                 });
                                     }

@@ -27,7 +27,7 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
         public MyMedicsHolder(@NonNull View itemView) {
             super(itemView);
 
-            consultId = itemView.findViewById(R.id.userConsultId);
+            //consultId = itemView.findViewById(R.id.userConsultId);
             medicName = itemView.findViewById(R.id.userConsultMedic);
             petitionTitle = itemView.findViewById(R.id.userConsultPetitionTitle);
             date = itemView.findViewById(R.id.userConsultDate);
@@ -36,7 +36,7 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
         }
 
         public void bindData(Consult consult){
-            consultId.append(" " + consult.getId());
+            //consultId.append(" " + consult.getId());
             medicName.append(" " + consult.getMedic().getFirstName() + " "  + consult.getMedic().getLastName());
             petitionTitle.append(" " + consult.getSymptomsPetition().getTitle());
             date.append(" " + consult.getDate());

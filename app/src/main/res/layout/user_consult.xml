@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:animateLayoutChanges="true"
     android:padding="10dp"
-    app:cardBackgroundColor="#7d78b3"
+    app:cardBackgroundColor="#325ca8"
     app:cardCornerRadius="20dp"
     app:cardElevation="4dp"
     app:cardUseCompatPadding="true">
@@ -30,12 +30,12 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/userConsultId"
+                    android:id="@+id/userConsultPetitionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:text="@string/my_medic_id"
+                    android:text="@string/my_medic_description"
                     android:textColor="#FFFFFF"
                     android:textSize="20dp" />
 
@@ -48,14 +48,14 @@
                     android:text="@string/my_medic_medic"
                     android:textColor="#FFFFFF" />
 
-                <TextView
+                <!--<TextView
                     android:id="@+id/userConsultPetitionTitle"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
                     android:text="@string/my_medic_description"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#FFFFFF" />-->
 
                 <TextView
                     android:id="@+id/userConsultDate"

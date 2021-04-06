@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mimedico.model.User;
 import com.example.mimedico.services.NotificationService;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button signupAsMedic;
     private TextView usernameText;
     private TextView emailText;
+    private TextView nameText;
 
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
         usernameText = findViewById(R.id.mainUser);
         emailText = findViewById(R.id.mainEmail);
+        nameText = findViewById(R.id.mainName);
         myMedics = findViewById(R.id.mainMyMedicsButton);
 
         firebaseDatabase.getReference("users")
@@ -56,11 +59,10 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Iterator<DataSnapshot> iterator = dataSnapshot.getChildren().iterator();
                 while(iterator.hasNext()){
-                    DataSnapshot dataSnapshot1 = iterator.next();
-                    String email = dataSnapshot1.child("email").getValue().toString();
-                    String username = dataSnapshot1.child("userName").getValue().toString();
-                    emailText.append(" " + email);
-                    usernameText.append(" " + username);
+                    User user = iterator.next().getValue(User.class);
+                    nameText.append(" " + user.getFirstName() + " " + user.getLastName());
+                    emailText.append(" " + user.getEmail());
+                    usernameText.append(" " + user.getUserName());
                 }
             }
 
