@@ -34,6 +34,7 @@
     <string name="languages">Languages</string>
     <string name="english">English</string>
     <string name="spanish">Spanish</string>
+    <string name="portuguese">Portuguese</string>
 
     <!--Main-->
     <string name="main">My Profile</string>
@@ -123,6 +124,7 @@
     <string name="my_medic_description">Description: </string>
     <string name="my_medic_date">Date: </string>
     <string name="my_medic_chat">Chat</string>
+    <string name="my_medic_videochat">Videochat</string>
 
     <!--User Chat-->
     <string name="user_chat_id">Consult Id: </string>

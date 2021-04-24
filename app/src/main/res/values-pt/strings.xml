@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Login-->
+    <string name="app_name">MiMedico</string>
+    <string name="login_app">&#160;&#160;MiMedico</string>
+    <string name="login_title">Conecte-se</string>
+    <string name="login_email">O email</string>
+    <string name="login_password">Senha</string>
+    <string name="login_submit">Conecte-se</string>
+    <string name="login_signup">Eu não tenho uma conta</string>
+    <string-array name="roles">
+        <item>1° Do utilizador</item>
+        <item>2° Medico</item>
+        <item>3° Admin</item>
+    </string-array>
+
+    <!--Sign Up-->
+    <string name="signup_title">Inscrever-se</string>
+    <string name="siguup_firstname">Primeiro nome</string>
+    <string name="signup_lastname">Último nome</string>
+    <string name="signup_username">Nome de usuário</string>
+    <string name="signup_email">O email</string>
+    <string name="signup_password">Senha</string>
+    <string name="signup_birthdate">Data de nascimento</string>
+    <string name="signup_account_type">Tipo de conta</string>
+    <string name="singup_title">Foto do título</string>
+    <string name="signup_submit">Inscrever-se</string>
+    <string name="signup_login">Eu já tenho uma conta</string>
+
+    <!--Menu-->
+    <string name="change_language">Mudar idioma</string>
+    <string name="logout">Sair</string>
+
+    <!--Languages-->
+    <string name="languages">Línguas</string>
+    <string name="english">Inglês</string>
+    <string name="spanish">Espanhol</string>
+    <string name="portuguese">Portugues</string>
+
+    <!--Main-->
+    <string name="main">Meu perfil</string>
+    <string name="main_name">Nome:</string>
+    <string name="main_user">Nome de usuário: </string>
+    <string name="main_email">O email: </string>
+    <string name="main_birthdate">Data de nascimento: </string>
+    <string name="main_medics">Meus medicos</string>
+    <string name="main_symptoms">Meus sintomas</string>
+    <string name="main_notifications">Notificações</string>
+    <string name="main_medic">Inscreva-se como médico</string>
+
+    <!--MedicMain-->
+    <string name="main_medic_medic">Médico: </string>
+    <string name="main_medic_email">O email: </string>
+    <string name="main_medic_check">Verifique as petições</string>
+    <string name="main_medic_patients">Meus pacientes</string>
+    <string name="main_medic_notifications">Notificações</string>
+
+    <!--Signup-->
+    <string name="signup_medic">Inscreva-se como médico</string>
+    <string name="signup_medic_school">Nome da instituição</string>
+    <string name="signup_medic_years">Anos de experiência</string>
+    <string name="signup_medic_image">Selecione a imagem do atestado médico</string>
+    <string name="signup_medic_photo">Selecione a foto do seu rosto</string>
+    <string name="signup_medic_select">Selecione</string>
+    <string name="signup_medic_send">Mandar</string>
+
+    <!--Email-->
+    <string name="email_no_validate">Email não validado, verifique seu email para validar</string>
+    <string name="resend">Reenviar Email de Validação</string>
+    <string name="reload">Recarregue a Sessão</string>
+
+    <!--My Symptoms-->
+    <string name="my_symptoms_title">Meus sintomas</string>
+    <string name="my_symptoms_placeholder">Palavras-chave</string>
+    <string name="my_symptoms_search">Procurar</string>
+    <string name="my_symptoms_messages">Mensagens</string>
+    <string name="my_symptoms_delete">Excluir</string>
+
+    <!--Send Symptoms-->
+    <string name="send_symptoms_title">Enviar sintomas</string>
+    <string name="send_symptoms_title_placeholder">Título da petição</string>
+    <string name="send_symptoms_placeholder">Escreva aqui os sintomas</string>
+    <string name="send_symptoms_append_image">Anexar imagem (Opcional)</string>
+    <string name="send_symptoms_send">Mandar</string>
+
+    <!--Check Petitions-->
+    <string name="check_petitions_text">Verifique as petições</string>
+    <string name="check_petitions_send">Enviar mensagem</string>
+
+    <!--Check One Petition-->
+    <string name="check_one_petition_title">Verifique a petição</string>
+    <string name="check_one_petition_placeholder">Mensagem</string>
+    <string name="check_one_petition_send">Mandar</string>
+
+    <!--Petitions Messages-->
+    <string name="petitions_messages_text">Mensagens</string>
+    <string name="petitions_messages_button">Ver detalhes</string>
+
+    <!--Admin Main-->
+    <string name="admin_user">Admin: </string>
+    <string name="admin_email">O email: </string>
+    <string name="admin_check_medic_proofs">Verifique as Provas Médicas</string>
+
+    <!--Medic Petitions List -->
+    <string name="medic_petition_list_view">Visualizar</string>
+
+    <!--Medic Petition-->
+    <string name="medic_petition_photos">Fotos</string>
+    <string name="medic_petition_accept">Aceitar</string>
+    <string name="medic_petition_reject">Rejeitar</string>
+
+    <!--Medic Message-->
+    <string name="medic_message_name">Nome: </string>
+    <string name="medic_message_institution">Instituição: </string>
+    <string name="medic_message_years">Anos de experiência: </string>
+    <string name="medic_message_email">O email: </string>
+    <string name="medic_message_message">Mensagem: </string>
+    <string name="medic_message_accept">Aceite este médico</string>
+    <string name="medic_message_reject">Rejeitar este médico</string>
+
+    <!--My Medics-->
+    <string name="my_medic_title">Minhas Consultas Médicas</string>
+    <string name="my_medic_id">Consultar Id: </string>
+    <string name="my_medic_medic">Médico: </string>
+    <string name="my_medic_description">Descrição: </string>
+    <string name="my_medic_date">Data: </string>
+    <string name="my_medic_chat">Chat</string>
+    <string name="my_medic_videochat">Videochat</string>
+
+    <!--User Chat-->
+    <string name="user_chat_id">Consultar Id: </string>
+    <string name="user_chat_title">Título: </string>
+    <string name="user_chat_medic">Médico: </string>
+    <string name="user_chat_placeholder">Mensagem</string>
+    <string name="user_chat_send">Mandar</string>
+
+    <!--My Patients-->
+    <string name="my_patients_title">Meus pacientes</string>
+    <string name="my_patients_id">Identificação: </string>
+    <string name="my_patients_medic">Paciente: </string>
+    <string name="my_patients_description">Descrição: </string>
+    <string name="my_patients_date">Data: </string>
+    <string name="my_patients_chat">Bater papo</string>
+
+    <!--Medic Chat-->
+    <string name="medic_chat_user">Paciente: </string>
+
+    <!--Check One Petition-->
+    <string name="check_one_title">Título: </string>
+    <string name="check_one_name">Nome: </string>
+    <string name="check_one_username">Nome de usuário: </string>
+    <string name="check_one_date">Data da petição: </string>
+    <string name="check_one_email">O email: </string>
+    <string name="check_one_description">Descrição: </string>
+</resources>

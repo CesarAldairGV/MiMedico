@@ -50,7 +50,7 @@ public class ChatMedic extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_medic);
 
-        consult = findViewById(R.id.chatMedicText);
+        //consult = findViewById(R.id.chatMedicText);
         title = findViewById(R.id.chatMedicTitle);
         patient = findViewById(R.id.chatMedicUser);
 
@@ -73,9 +73,9 @@ public class ChatMedic extends AppCompatActivity {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Consult consult = snapshot.getValue(Consult.class);
-                        ChatMedic.this.consult.append(" " + consult.getId());
+                        //ChatMedic.this.consult.append(" " + consult.getId());
                         title.append(" " + consult.getSymptomsPetition().getTitle());
-                        patient.append(" " + consult.getMedic().getFirstName() + " " + consult.getMedic().getLastName());
+                        patient.append(" " + consult.getUser().getFirstName() + " " + consult.getUser().getLastName());
                     }
                     @Override
                     public void onCancelled(@NonNull DatabaseError error) {

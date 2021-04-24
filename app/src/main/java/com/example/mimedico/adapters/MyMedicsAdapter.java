@@ -22,7 +22,7 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
     public class MyMedicsHolder extends RecyclerView.ViewHolder{
 
         private TextView consultId, medicName, petitionTitle, date;
-        private Button openChat;
+        private Button openChat, openVideochat;
 
         public MyMedicsHolder(@NonNull View itemView) {
             super(itemView);
@@ -33,6 +33,7 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
             date = itemView.findViewById(R.id.userConsultDate);
 
             openChat = itemView.findViewById(R.id.userConsultButton);
+            openVideochat = itemView.findViewById(R.id.userConsultVideochat);
         }
 
         public void bindData(Consult consult){
@@ -45,6 +46,12 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
             intent.putExtra("consultId", consult.getId());
             openChat.setOnClickListener(v -> {
                 context.startActivity(intent);
+            });
+            openVideochat.setOnClickListener(v -> {
+                Intent intentVideo = new Intent();
+                intentVideo.putExtra("userId",consult.getUser().getId());
+                intentVideo.putExtra("medicId",consult.getMedic().getId());
+                context.startActivity(intentVideo);
             });
         }
     }

@@ -27,23 +27,35 @@
         android:text="@string/spanish"
         android:onClick="setSpanishAsLanguage"
         android:background="@drawable/round_bg"
+        android:layout_marginTop="20dp"
         app:backgroundTint="#3F60F1"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/languagesText"
-        app:layout_constraintVertical_bias="0.13" />
+        app:layout_constraintTop_toBottomOf="@+id/languagesText" />
 
     <Button
         android:id="@+id/englishButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/english"
-        android:onClick="setEnglishAsLanguage"
         android:background="@drawable/round_bg"
+        android:onClick="setEnglishAsLanguage"
+        android:text="@string/english"
+        android:layout_marginTop="20dp"
         app:backgroundTint="#3F60F1"
-        app:layout_constraintBaseline_toBaselineOf="@+id/spanishButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/spanishButton" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spanishButton" />
+
+    <Button
+        android:id="@+id/portugueseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/round_bg"
+        android:onClick="setPortugueseAsLanguage"
+        android:text="@string/portuguese"
+        android:layout_marginTop="20dp"
+        app:backgroundTint="#3F60F1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/englishButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -83,7 +83,7 @@ public class MedicMessage extends AppCompatActivity {
                         email.append(" " + medic.getEmail());
                         years.append(" " + medic.getYearsOfExperience());
                         message.setText(symptomsPetitionMessage.getMessage());
-                        Picasso.get().load(medic.getMedicProofUrl()).fit().centerCrop().into(proofView);
+                        Picasso.get().load(medic.getMedicProofUrl()).fit().centerInside().into(proofView);
                         Picasso.get().load(medic.getUserPhotoUrl()).fit().centerCrop().into(photoView);
                     }
                     @Override

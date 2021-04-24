@@ -58,12 +58,8 @@ public class NotificationService extends Service {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
                         Iterator<DataSnapshot> iterator = snapshot.getChildren().iterator();
-                        if(iterator.hasNext()){
-                            while(iterator.hasNext()){
-                                lastNotification = iterator.next().getValue(Notification.class);
-                            }
-                        }else{
-                            flag = true;
+                        while(iterator.hasNext()){
+                            lastNotification = iterator.next().getValue(Notification.class);
                         }
                         databaseReference = firebaseDatabase.getReference("users")
                                 .child(userId)
@@ -90,10 +86,13 @@ public class NotificationService extends Service {
                                             .setContentTitle(notification.getTitle())
                                             .setContentText(notification.getMessage())
                                             .setContentIntent(pendingIntent)
-                                            .setAutoCancel(true)
                                             .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
                                     notificationManager.notify(id++, builder.build());
+                                    return;
+                                }
+                                if(lastNotification == null){
+                                    flag = true;
                                     return;
                                 }
                                 if(lastNotification.getId().equals(snapshot.getValue(Notification.class).getId())){

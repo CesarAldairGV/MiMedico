@@ -8,38 +8,26 @@
     tools:context=".ChatMedic">
 
     <TextView
-        android:id="@+id/chatMedicText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:fontFamily="@font/baloo"
-        android:text="@string/user_chat_id"
-        android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
         android:id="@+id/chatMedicTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/baloo"
         android:text="@string/user_chat_title"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chatMedicText" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/chatMedicUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
         android:fontFamily="@font/baloo"
         android:text="@string/medic_chat_user"
         android:textSize="15sp"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chatMedicTitle" />
 
@@ -75,5 +63,16 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        android:translationZ="-1dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/back3" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

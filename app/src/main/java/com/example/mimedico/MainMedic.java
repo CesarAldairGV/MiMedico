@@ -33,7 +33,7 @@ public class MainMedic extends AppCompatActivity {
     private Button checkPetitionsButton;
     private Button myPatientsButton;
 
-    private Intent intentService;
+    private static Intent intentService;
     private User medic;
 
     @Override

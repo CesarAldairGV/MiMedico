@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/baloo"
                     android:paddingStart="5dp"
-                    android:text="@string/my_patients_title"
+                    android:text="@string/my_patients_medic"
                     android:textColor="#FFFFFF" />
 
                 <TextView

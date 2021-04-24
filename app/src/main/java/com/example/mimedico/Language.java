@@ -33,6 +33,11 @@ public class Language extends AppCompatActivity {
         this.recreate();
     }
 
+    public void setPortugueseAsLanguage(View view){
+        ChangeLanguage.changeLanguage(this, "pt");
+        this.recreate();
+    }
+
     public void onBackPressed() {
         if(getIntent().getStringExtra("parent").equals("MainActivity")) {
             Intent intent = new Intent(this,MainActivity.class);
