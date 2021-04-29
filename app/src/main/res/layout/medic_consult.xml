@@ -86,16 +86,16 @@
                 android:text="@string/my_patients_chat"
                 app:backgroundTint="#3F60F1" />
 
-            <!--<Button
-                android:id="@+id/petitionDeleteButton"
+            <Button
+                android:id="@+id/medicConsultVideochat"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10dp"
                 android:layout_marginBottom="10dp"
                 android:background="@drawable/round_bg"
                 android:fontFamily="@font/baloo"
-                android:text="@string/my_symptoms_delete"
-                app:backgroundTint="#cc0000" />-->
+                android:text="@string/my_medic_videochat"
+                app:backgroundTint="#7242BF" />
 
         </LinearLayout>
     </LinearLayout>

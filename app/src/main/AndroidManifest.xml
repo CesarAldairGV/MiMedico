@@ -3,14 +3,19 @@
     package="com.example.mimedico">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MiMedico">
-        <activity android:name=".ChatMedic"></activity>
+        android:theme="@style/Theme.MiMedico"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".CallActivity"></activity>
+        <activity android:name=".ChatMedic" />
         <activity android:name=".MyPatients" />
         <activity android:name=".MyMedics" />
         <activity android:name=".ChatUser" />

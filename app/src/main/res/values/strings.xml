@@ -151,4 +151,8 @@
     <string name="check_one_date">Petition Date: </string>
     <string name="check_one_email">Email: </string>
     <string name="check_one_description">Description: </string>
+
+    <!--Videochat-->
+    <string name="videochat">Videochat</string>
+    <string name="call">Call</string>
 </resources>

@@ -1,17 +1,23 @@
 package com.example.mimedico.adapters;
 
+import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mimedico.CallActivity;
 import com.example.mimedico.ChatUser;
 import com.example.mimedico.R;
 import com.example.mimedico.model.Consult;
@@ -23,6 +29,7 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
 
         private TextView consultId, medicName, petitionTitle, date;
         private Button openChat, openVideochat;
+        private String[] permissions = {Manifest.permission.CAMERA, Manifest.permission.RECORD_AUDIO};
 
         public MyMedicsHolder(@NonNull View itemView) {
             super(itemView);
@@ -48,11 +55,40 @@ public class MyMedicsAdapter extends RecyclerView.Adapter<MyMedicsAdapter.MyMedi
                 context.startActivity(intent);
             });
             openVideochat.setOnClickListener(v -> {
-                Intent intentVideo = new Intent();
-                intentVideo.putExtra("userId",consult.getUser().getId());
-                intentVideo.putExtra("medicId",consult.getMedic().getId());
-                context.startActivity(intentVideo);
+
+                if(!checkPermissions()){
+                    askPermissions();
+                    if(!checkPermissions()){
+                        Toast.makeText(context, "Permissions denied", Toast.LENGTH_SHORT).show();
+                    }else{
+                        callActivity(consult);
+                    }
+                }else{
+                    callActivity(consult);
+                }
             });
+        }
+
+        private void callActivity(Consult consult){
+            Intent intentVideo = new Intent(context, CallActivity.class);
+            intentVideo.putExtra("userId",consult.getUser().getId());
+            intentVideo.putExtra("medicId",consult.getMedic().getId());
+            intentVideo.putExtra("username",consult.getUser().getUserName());
+            intentVideo.putExtra("username2", consult.getMedic().getUserName());
+            context.startActivity(intentVideo);
+        }
+
+        private boolean checkPermissions(){
+            for(String per : permissions){
+                if(ActivityCompat.checkSelfPermission(context, per) != PackageManager.PERMISSION_GRANTED){
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private void askPermissions(){
+            ActivityCompat.requestPermissions((Activity)context, permissions, 1);
         }
     }
 
